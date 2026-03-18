@@ -1,0 +1,89 @@
+{
+  "site": {
+    "title": "Haven Design & Build LLC",
+    "tagline": "Designing, Building & Repairing your home, one detail at a time.",
+    "copyright_year": 2026,
+    "company_email": "info@havendesignandbuild.com",
+    "company_phone": "+1 (000) 000-0000",
+    "company_address": "Your City, State"
+  },
+  "colors": {
+    "primary": "#1a1a1a",
+    "accent": "#C4A747",
+    "white": "#ffffff",
+    "gray_dark": "#2a2a2a",
+    "gray_light": "#f5f5f5"
+  },
+  "integrations": {
+    "email": {
+      "service": "formspree",
+      "form_id": "YOUR_FORMSPREE_ID",
+      "notes": "Replace YOUR_FORMSPREE_ID with your Formspree form ID from https://formspree.io"
+    },
+    "stripe": {
+      "publishable_key": "YOUR_STRIPE_PUBLISHABLE_KEY",
+      "payment_link": "https://buy.stripe.com/YOUR_LINK",
+      "notes": "Get keys from https://dashboard.stripe.com and create a payment link"
+    },
+    "calendly": {
+      "url": "https://calendly.com/your-username",
+      "notes": "Replace with your actual Calendly URL from https://calendly.com"
+    },
+    "analytics": {
+      "google_analytics_id": "YOUR_GA_ID",
+      "notes": "Get ID from https://analytics.google.com (starts with G-)"
+    }
+  },
+  "social_media": {
+    "facebook": "https://facebook.com/your-page",
+    "instagram": "https://instagram.com/your-account",
+    "linkedin": "https://linkedin.com/company/your-company",
+    "youtube": "https://youtube.com/@your-channel"
+  },
+  "services": [
+    {
+      "id": "kitchen",
+      "title": "Kitchen Remodel",
+      "description": "Transform your kitchen into a culinary masterpiece. From custom cabinetry to state-of-the-art appliances, we design kitchens that blend aesthetics with functionality.",
+      "image_url": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=350&fit=crop"
+    },
+    {
+      "id": "bathroom",
+      "title": "Bathroom Renovation",
+      "description": "Create your personal spa retreat. We design luxurious bathrooms with premium fixtures, spa-like features, and impeccable tile work.",
+      "image_url": "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=400&h=350&fit=crop"
+    },
+    {
+      "id": "basement",
+      "title": "Basement Finishing & Garage Spaces",
+      "description": "Unlock the potential of your basement and garage. We transform unfinished spaces into beautiful, functional areas.",
+      "image_url": "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=400&h=350&fit=crop"
+    },
+    {
+      "id": "outdoor",
+      "title": "Outdoor Living Space",
+      "description": "Extend your living experience outdoors with custom patio design, deck construction, and landscaping integration.",
+      "image_url": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=350&fit=crop"
+    }
+  ],
+  "testimonials": [
+    {
+      "text": "The elevation in design quality Haven brought to our home was profound. Their builders are true artisans of their craft.",
+      "author": "Marcus L."
+    },
+    {
+      "text": "Renovating a luxury property is daunting, but Haven's team delivered a flawless execution of our vision with professional grace.",
+      "author": "Sofia K."
+    },
+    {
+      "text": "More than just your typical contractors. Walked with us in the design and build of our latest property.",
+      "author": "James M."
+    }
+  ],
+  "deployment": {
+    "host": "Suggested: Netlify, Vercel, or GoDaddy",
+    "domain": "your-domain.com",
+    "ssl": true,
+    "notes": "This is a static site - can be hosted anywhere. No backend needed (unless using advanced Stripe integration)."
+  }
+}
