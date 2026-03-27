@@ -1,180 +1,84 @@
 # Haven Design & Build LLC - Website
 
-A professional, modern, and fully responsive landing page and portfolio for a high-end design and renovation company.
+High-end, responsive website for Haven Design & Build LLC with a premium black + bronze visual system, local branded imagery, inquiry capture, and Stripe-ready payments.
 
-## 🏠 Features
+## Current Site State
 
-- **Responsive Design**: Works perfectly on mobile, tablet, and desktop
-- **Modern UI/UX**: Clean, professional design with black and bronze color scheme
-- **Service Portfolio**: Showcase kitchen remodels, bathroom renovations, basement finishing, and outdoor living
-- **Contact Form**: Integrated inquiry form with email notifications
-- **Payment Integration**: Stripe payment integration for deposits and payments
-- **Calendar Scheduling**: Calendly integration for booking consultations
-- **Mobile Menu**: Touch-friendly hamburger menu for mobile devices
-- **Project Gallery**: Display featured projects and testimonials
+- Premium black + bronze theme across all pages
+- Hero, featured projects, testimonials, services, inquire, and payments content updated
+- Local branded assets in `images/` (logo + service/project imagery)
+- Inquire page uses form submission workflow (no booking embed)
+- Payments page keeps Stripe placeholder logic intact
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 /Design-and-Renovation/
-├── index.html              # Main website file
+├── index.html
 ├── css/
-│   └── styles.css          # All styling (mobile responsive)
+│   └── styles.css
 ├── js/
-│   └── app.js              # Navigation, forms, integrations
-├── config.json             # Easy customization configuration
-├── SETUP.md                # Detailed setup guide
-└── README.md               # This file
+│   └── app.js
+├── images/
+│   ├── Haven_transparent_logo.png
+│   ├── Kitchen_remodel.jpg
+│   ├── luxury_bathroom.png
+│   ├── basement_finishing.jpg
+│   ├── outdoor_living.jpg
+│   └── modern_living.jpg
+├── config.json
+├── START_HERE.md
+├── QUICKSTART.md
+├── SETUP.md
+└── README.md
 ```
 
-## 🚀 Quick Start
+## Quick Start
 
-1. **View the site**: Open `index.html` in any web browser
-2. **Navigate**: Use top navigation to switch between pages:
-   - **Home**: Featured projects and testimonials
-   - **Services**: Detailed service offerings
-   - **Inquire**: Contact form and consultation booking
-   - **Payments**: Payment options and online payment
+1. Open `index.html` in a browser.
+2. Navigate Home / Services / Inquire / Payments.
+3. Test inquiry form submission.
+4. Test Stripe button behavior on Payments page.
 
-## 🔧 Customization
+For fast setup, use `START_HERE.md` and `QUICKSTART.md`.
 
-All easy customization options are in `config.json`:
-- Company information
-- Color scheme
-- Integration keys (Email, Stripe, Calendly)
-- Services and testimonials
-- Social media links
+## Key Integrations
 
-For detailed setup instructions, see [SETUP.md](SETUP.md)
+### Inquiry Form (Formspree)
 
-## 📧 Email Integration
+The form submits from `js/app.js` using a Formspree endpoint.
 
-The contact form uses **Formspree** (free service). To activate:
+- Find the fetch URL in `js/app.js`.
+- Replace the Formspree form ID with your own.
+- Submit a test inquiry from the Inquire page.
 
-1. Go to [formspree.io](https://formspree.io)
-2. Create a new form
-3. Copy your form ID
-4. Update `js/app.js` with your form ID (line ~82)
+### Stripe (Placeholder Logic Retained)
 
-**Alternative email services**: EmailJS, SendGrid, Resend, AWS SES
+Stripe flow remains intentionally placeholder-based in `js/app.js`.
 
-## 💳 Stripe Payment Integration
+- Keep current button and handler unless implementing backend checkout.
+- If moving to production Stripe, wire a real publishable key and server-side payment flow.
 
-To accept online payments:
+## Branding + Content Notes
 
-1. Create a [Stripe account](https://stripe.com)
-2. Get your Publishable Key from Dashboard
-3. Create a Payment Link for your product
-4. Update the payment link URL in the Payments page
+- Active website logo: `images/Haven_transparent_logo.png`
+- Old logo file intentionally removed from active markup
+- Service/project imagery now uses local files in `images/`
 
-See [SETUP.md](SETUP.md) for detailed Stripe setup instructions.
+## Deployment
 
-## 📅 Calendly Integration
+This is a static site. You can deploy to Netlify, Vercel, GitHub Pages, or any static host.
 
-To enable booking:
+## Pre-Launch Checklist
 
-1. Create a [Calendly account](https://calendly.com)
-2. Set up your availability
-3. Copy your calendar URL
-4. Update the Calendly embed in `index.html`
+- [ ] Replace Formspree ID with production form
+- [ ] Verify inquiry emails are received
+- [ ] Confirm Stripe production flow (or keep as clearly labeled placeholder)
+- [ ] Verify mobile navigation and forms on phone
+- [ ] Validate all `images/` assets load in production
+- [ ] Add analytics and legal pages if required
 
-## 📱 Mobile Responsive
+## Support
 
-The website is fully responsive with:
-- Mobile-first design approach
-- Hamburger navigation menu for small screens
-- Touch-optimized buttons and forms
-- Optimized images for all screen sizes
-- Tested on iPhone, Android, iPad, and desktop
-
-## 🎨 Design System
-
-### Colors
-- **Primary**: Black (#1a1a1a) - Professional, sophisticated
-- **Accent**: Bronze (#C4A747) - Luxury, premium feel
-- **Secondary**: Various grays for hierarchy
-
-### Typography
-- Modern, clean font stack
-- Optimized line heights for readability
-- Hierarchy through font sizes and weights
-
-### Components
-- Responsive grid layouts
-- Smooth animations and transitions
-- Accessible form inputs
-- Visual feedback on interactions
-
-## 🌐 Deployment
-
-This is a **static website** - no backend required. Deploy to:
-
-- **Netlify** (drag & drop, free)
-- **Vercel** (optimized for modern web)
-- **GitHub Pages** (free from GitHub)
-- **GoDaddy** (traditional hosting)
-- **Any web host** (just upload files via FTP)
-
-**Recommended**: Netlify or Vercel for free, fast hosting with HTTPS.
-
-## ✅ Deployment Checklist
-
-Before going live:
-
-- [ ] Update all company information
-- [ ] Add real project photos
-- [ ] Setup email service (Formspree, EmailJS, etc.)
-- [ ] Setup Stripe account and payment links
-- [ ] Configure Calendly calendar
-- [ ] Test contact form submissions
-- [ ] Test payment functionality
-- [ ] Test on mobile and desktop
-- [ ] Setup SSL certificate (HTTPS)
-- [ ] Add analytics tracking (Google Analytics, etc.)
-- [ ] Create Privacy Policy page
-- [ ] Setup email backups and monitoring
-
-## 🔐 Security Notes
-
-- Contact form submissions go to your email service
-- No sensitive data is stored locally
-- Use HTTPS in production
-- Keep API keys private
-- Never commit `.env` files or secrets to version control
-
-## 📞 Support
-
-See [SETUP.md](SETUP.md) for:
-- Detailed integration guides
-- Troubleshooting
-- API documentation links
-- Best practices
-
-## 📊 Analytics
-
-To track visitors, add Google Analytics:
-1. Create account at [analytics.google.com](https://analytics.google.com)
-2. Get your Measurement ID
-3. Add tracking code to `<head>` in `index.html`
-
-## 🎯 Features Coming Soon
-
-- Blog section for project updates
-- Video gallery with before/after tours
-- Client testimonial videos
-- Advanced scheduling system
-- Multi-language support
-
-## 📄 License
-
-This website template is ready for production use by Haven Design & Build LLC.
-
-## 🤝 Contributing
-
-To suggest improvements or report issues, contact the development team.
-
----
-
-**Built with ❤️ for Haven Design & Build LLC**
-
-*"Designing, Building & Repairing your home, one detail at a time."*
+- Setup details: `SETUP.md`
+- Fast bootstrapping: `START_HERE.md` and `QUICKSTART.md`
