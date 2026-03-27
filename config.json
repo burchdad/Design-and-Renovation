@@ -8,11 +8,11 @@
     "company_address": "Your City, State"
   },
   "colors": {
-    "primary": "#1a1a1a",
-    "accent": "#C4A747",
-    "white": "#ffffff",
-    "gray_dark": "#2a2a2a",
-    "gray_light": "#f5f5f5"
+    "primary": "#0B0B0B",
+    "accent": "#C49A3A",
+    "white": "#F5F5F5",
+    "gray_dark": "#1A1A1A",
+    "card_bg": "#141414"
   },
   "integrations": {
     "email": {
@@ -24,10 +24,6 @@
       "publishable_key": "YOUR_STRIPE_PUBLISHABLE_KEY",
       "payment_link": "https://buy.stripe.com/YOUR_LINK",
       "notes": "Get keys from https://dashboard.stripe.com and create a payment link"
-    },
-    "calendly": {
-      "url": "https://calendly.com/your-username",
-      "notes": "Replace with your actual Calendly URL from https://calendly.com"
     },
     "analytics": {
       "google_analytics_id": "YOUR_GA_ID",
@@ -45,25 +41,25 @@
       "id": "kitchen",
       "title": "Kitchen Remodel",
       "description": "Transform your kitchen into a culinary masterpiece. From custom cabinetry to state-of-the-art appliances, we design kitchens that blend aesthetics with functionality.",
-      "image_url": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=350&fit=crop"
+      "image_url": "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=400&h=350&fit=crop"
     },
     {
       "id": "bathroom",
       "title": "Bathroom Renovation",
       "description": "Create your personal spa retreat. We design luxurious bathrooms with premium fixtures, spa-like features, and impeccable tile work.",
-      "image_url": "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=400&h=350&fit=crop"
+      "image_url": "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=400&h=350&fit=crop"
     },
     {
       "id": "basement",
       "title": "Basement Finishing & Garage Spaces",
       "description": "Unlock the potential of your basement and garage. We transform unfinished spaces into beautiful, functional areas.",
-      "image_url": "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=400&h=350&fit=crop"
+      "image_url": "https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?w=400&h=350&fit=crop"
     },
     {
       "id": "outdoor",
       "title": "Outdoor Living Space",
       "description": "Extend your living experience outdoors with custom patio design, deck construction, and landscaping integration.",
-      "image_url": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=350&fit=crop"
+      "image_url": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=400&h=350&fit=crop"
     }
   ],
   "testimonials": [

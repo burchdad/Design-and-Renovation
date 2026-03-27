@@ -1,6 +1,6 @@
 /* ========================================
    HAVEN Design & Build - Main Stylesheet
-   Black (#1a1a1a) & Bronze (#C4A747) Theme
+   Premium Black (#0B0B0B) & Bronze (#C49A3A) Theme
    ======================================== */
 
 * {
@@ -10,13 +10,19 @@
 }
 
 :root {
-    --black: #1a1a1a;
-    --bronze: #C4A747;
-    --bronze-light: #d4b557;
-    --white: #ffffff;
-    --gray-dark: #2a2a2a;
-    --gray-light: #f5f5f5;
-    --text-color: #333;
+    --black: #0B0B0B;
+    --black-lighter: #141414;
+    --bronze: #C49A3A;
+    --bronze-light: #D4AA4A;
+    --bronze-dim: rgba(196, 154, 58, 0.15);
+    --white: #F5F5F5;
+    --gray-dark: #1A1A1A;
+    --gray-mid: #2A2A2A;
+    --gray-light: #B0B0B0;
+    --text-primary: #E8E8E8;
+    --text-secondary: #999999;
+    --card-bg: #141414;
+    --card-border: #222222;
 }
 
 html {
@@ -25,9 +31,9 @@ html {
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    color: var(--text-color);
-    background-color: var(--white);
+    line-height: 1.7;
+    color: var(--text-primary);
+    background-color: var(--black);
 }
 
 /* ========================================
@@ -39,7 +45,8 @@ body {
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+    border-bottom: 1px solid var(--card-border);
 }
 
 .nav-container {
@@ -48,7 +55,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
+    padding: 1.25rem 2rem;
 }
 
 .logo {
@@ -61,32 +68,35 @@ body {
 }
 
 .logo h1 {
-    font-size: 1.5rem;
-    letter-spacing: 2px;
+    font-size: 1.6rem;
+    letter-spacing: 3px;
     margin: 0;
     line-height: 1;
 }
 
 .logo p {
     font-size: 0.7rem;
-    letter-spacing: 1px;
-    margin-top: 0.25rem;
+    letter-spacing: 1.5px;
+    margin-top: 0.3rem;
     text-transform: uppercase;
+    color: var(--bronze);
+    opacity: 0.8;
 }
 
 .nav-menu {
     display: flex;
     list-style: none;
-    gap: 2rem;
+    gap: 2.5rem;
 }
 
 .nav-link {
-    color: var(--white);
+    color: var(--text-primary);
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease;
     cursor: pointer;
     font-size: 1rem;
+    letter-spacing: 0.5px;
 }
 
 .nav-link:hover {
@@ -134,15 +144,16 @@ body {
 
 .btn {
     display: inline-block;
-    padding: 0.75rem 2rem;
+    padding: 0.85rem 2.2rem;
     border: 2px solid transparent;
-    border-radius: 4px;
+    border-radius: 6px;
     text-decoration: none;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
     font-size: 1rem;
     text-align: center;
+    letter-spacing: 0.5px;
 }
 
 .btn-primary {
@@ -153,29 +164,31 @@ body {
 .btn-primary:hover {
     background-color: var(--bronze-light);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(196, 167, 71, 0.3);
+    box-shadow: 0 6px 20px rgba(196, 154, 58, 0.3);
 }
 
 .btn-secondary {
     background-color: transparent;
-    color: var(--black);
-    border: 2px solid var(--black);
+    color: var(--bronze);
+    border: 2px solid var(--bronze);
 }
 
 .btn-secondary:hover {
-    background-color: var(--black);
-    color: var(--white);
+    background-color: var(--bronze-dim);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(196, 154, 58, 0.15);
 }
 
 .btn-tertiary {
-    background-color: var(--bronze);
-    color: var(--black);
-    padding: 0.5rem 1.5rem;
+    background-color: transparent;
+    color: var(--bronze);
+    border: 2px solid var(--bronze);
+    padding: 0.6rem 1.5rem;
     font-size: 0.9rem;
 }
 
 .btn-tertiary:hover {
-    background-color: var(--bronze-light);
+    background-color: var(--bronze-dim);
 }
 
 /* ========================================
@@ -208,49 +221,50 @@ body {
 .hero {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 3rem;
+    gap: 4rem;
     align-items: center;
     max-width: 1200px;
-    margin: 3rem auto;
+    margin: 5rem auto;
     padding: 0 2rem;
 }
 
 .hero-content h2 {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     line-height: 1.2;
-    margin-bottom: 1.5rem;
-    color: var(--black);
+    margin-bottom: 1.8rem;
+    color: var(--white);
+    letter-spacing: -0.5px;
 }
 
 .hero-content p {
     font-size: 1.1rem;
-    margin-bottom: 1rem;
-    color: #666;
-    line-height: 1.8;
+    margin-bottom: 1.2rem;
+    color: var(--text-secondary);
+    line-height: 1.9;
 }
 
 .hero-content .btn {
-    margin-top: 2rem;
+    margin-top: 2.5rem;
 }
 
 .hero-image img {
     width: 100%;
-    border-radius: 8px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
 }
 
 /* Featured Projects */
 .featured-projects {
     max-width: 1200px;
-    margin: 4rem auto;
+    margin: 6rem auto;
     padding: 0 2rem;
 }
 
 .featured-projects h3 {
-    font-size: 2rem;
-    margin-bottom: 2rem;
+    font-size: 2.2rem;
+    margin-bottom: 3rem;
     text-align: center;
-    color: var(--black);
+    color: var(--white);
 }
 
 .projects-grid {
@@ -260,16 +274,18 @@ body {
 }
 
 .project-card {
-    background: var(--white);
-    border-radius: 8px;
+    background: var(--card-bg);
+    border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--card-border);
 }
 
 .project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    transform: translateY(-6px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
+    border-color: rgba(196, 154, 58, 0.3);
 }
 
 .project-card img {
@@ -280,26 +296,29 @@ body {
 
 .project-card h4 {
     padding: 1.5rem 1.5rem 0.5rem;
-    color: var(--black);
-    font-size: 1.2rem;
+    color: var(--white);
+    font-size: 1.25rem;
 }
 
 .project-card p {
-    padding: 0.5rem 1.5rem 1.5rem;
-    color: #666;
+    padding: 0.5rem 1.5rem 1.8rem;
+    color: var(--text-secondary);
     font-size: 0.95rem;
+    line-height: 1.6;
 }
 
 /* Testimonials */
 .testimonials {
-    background: linear-gradient(135deg, var(--black) 0%, var(--gray-dark) 100%);
+    background: var(--gray-dark);
     color: var(--white);
-    padding: 4rem 2rem;
-    margin: 4rem 0;
+    padding: 6rem 2rem;
+    margin: 6rem 0 0;
+    border-top: 1px solid var(--card-border);
+    border-bottom: 1px solid var(--card-border);
 }
 
 .testimonials h3 {
-    font-size: 2rem;
+    font-size: 2.2rem;
     margin-bottom: 3rem;
     text-align: center;
 }
@@ -313,17 +332,19 @@ body {
 }
 
 .testimonial {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 2rem;
-    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 2.5rem;
+    border-radius: 10px;
+    border: 1px solid var(--card-border);
     border-left: 4px solid var(--bronze);
 }
 
 .testimonial p {
     font-size: 1rem;
-    line-height: 1.8;
+    line-height: 1.9;
     margin-bottom: 1.5rem;
     font-style: italic;
+    color: var(--text-primary);
 }
 
 .testimonial .author {
@@ -337,37 +358,38 @@ body {
 
 .services-header {
     text-align: center;
-    padding: 3rem 2rem;
+    padding: 4rem 2rem;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 .services-header h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: var(--black);
+    font-size: 2.8rem;
+    margin-bottom: 1.2rem;
+    color: var(--white);
 }
 
 .services-header p {
-    font-size: 1.1rem;
-    color: #666;
+    font-size: 1.15rem;
+    color: var(--text-secondary);
 }
 
 .services-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 2rem 4rem;
+    padding: 0 2rem 5rem;
 }
 
 .service-section {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 3rem;
+    gap: 3.5rem;
     align-items: center;
     margin-bottom: 4rem;
-    padding: 2rem;
-    background: var(--gray-light);
-    border-radius: 8px;
+    padding: 2.5rem;
+    background: var(--card-bg);
+    border-radius: 10px;
+    border: 1px solid var(--card-border);
 }
 
 .service-section-reverse {
@@ -381,20 +403,20 @@ body {
 .service-image img {
     width: 100%;
     border-radius: 8px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .service-content h3 {
-    font-size: 1.8rem;
+    font-size: 1.9rem;
     margin-bottom: 1.5rem;
-    color: var(--black);
+    color: var(--white);
 }
 
 .service-content p {
-    font-size: 1rem;
-    line-height: 1.8;
-    margin-bottom: 1.5rem;
-    color: #666;
+    font-size: 1.05rem;
+    line-height: 1.9;
+    margin-bottom: 1.8rem;
+    color: var(--text-secondary);
 }
 
 .service-content .btn {
@@ -407,36 +429,36 @@ body {
    ======================================== */
 
 .inquire-header {
-    background: linear-gradient(135deg, var(--black) 0%, var(--gray-dark) 100%);
+    background: var(--gray-dark);
     color: var(--white);
     text-align: center;
-    padding: 3rem 2rem;
+    padding: 4rem 2rem;
+    border-bottom: 1px solid var(--card-border);
 }
 
 .inquire-header h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+    font-size: 2.8rem;
+    margin-bottom: 1.2rem;
 }
 
 .inquire-header p {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     max-width: 600px;
     margin: 0 auto;
+    color: var(--text-secondary);
 }
 
 .inquire-content {
-    max-width: 1200px;
+    max-width: 700px;
     margin: 0 auto;
-    padding: 3rem 2rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
+    padding: 4rem 2rem;
 }
 
 .form-container {
-    background: var(--gray-light);
-    padding: 2.5rem;
-    border-radius: 8px;
+    background: var(--card-bg);
+    padding: 3rem;
+    border-radius: 10px;
+    border: 1px solid var(--card-border);
 }
 
 .inquiry-form {
@@ -453,18 +475,21 @@ body {
 .form-group label {
     font-weight: 600;
     margin-bottom: 0.5rem;
-    color: var(--black);
+    color: var(--white);
+    font-size: 0.95rem;
 }
 
 .form-group input,
 .form-group select,
 .form-group textarea {
-    padding: 0.75rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    padding: 0.85rem 1rem;
+    border: 1px solid var(--card-border);
+    border-radius: 6px;
     font-family: inherit;
     font-size: 1rem;
-    transition: border-color 0.3s ease;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: var(--gray-dark);
+    color: var(--text-primary);
 }
 
 .form-group input:focus,
@@ -472,7 +497,17 @@ body {
 .form-group textarea:focus {
     outline: none;
     border-color: var(--bronze);
-    box-shadow: 0 0 0 3px rgba(196, 167, 71, 0.1);
+    box-shadow: 0 0 0 3px rgba(196, 154, 58, 0.15);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: var(--text-secondary);
+}
+
+.form-group select option {
+    background-color: var(--gray-dark);
+    color: var(--text-primary);
 }
 
 .form-group textarea {
@@ -483,61 +518,33 @@ body {
     margin-top: 1rem;
     cursor: pointer;
     border: none;
-    font-size: 1rem;
+    font-size: 1.05rem;
+    padding: 1rem 2rem;
 }
 
 .form-note {
     font-size: 0.9rem;
-    color: #666;
-    margin-top: 0.5rem;
+    color: var(--text-secondary);
+    margin-top: 0.75rem;
+    text-align: center;
 }
 
 .form-message {
     padding: 1.5rem;
-    border-radius: 4px;
-    margin-top: 1rem;
+    border-radius: 6px;
+    margin-top: 1.5rem;
 }
 
 .form-message.success {
-    background-color: #d4edda;
-    border: 1px solid #c3e6cb;
-    color: #155724;
+    background-color: rgba(40, 167, 69, 0.15);
+    border: 1px solid rgba(40, 167, 69, 0.3);
+    color: #6fcf7c;
 }
 
 .form-message.error {
-    background-color: #f8d7da;
-    border: 1px solid #f5c6cb;
-    color: #721c24;
-}
-
-.calendly-container {
-    background: var(--gray-light);
-    padding: 2.5rem;
-    border-radius: 8px;
-}
-
-.calendly-container h3 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-    color: var(--black);
-}
-
-.calendly-container p {
-    margin-bottom: 1.5rem;
-    color: #666;
-}
-
-.calendly-embed {
-    background: var(--white);
-    border-radius: 4px;
-    overflow: hidden;
-}
-
-.calendly-note {
-    font-size: 0.85rem;
-    color: #999;
-    margin-top: 1rem;
-    font-style: italic;
+    background-color: rgba(220, 53, 69, 0.15);
+    border: 1px solid rgba(220, 53, 69, 0.3);
+    color: #f5a0a8;
 }
 
 /* ========================================
@@ -546,44 +553,48 @@ body {
 
 .payments-header {
     text-align: center;
-    background: linear-gradient(135deg, var(--black) 0%, var(--gray-dark) 100%);
+    background: var(--gray-dark);
     color: var(--white);
-    padding: 3rem 2rem;
+    padding: 4rem 2rem;
+    border-bottom: 1px solid var(--card-border);
 }
 
 .payments-header h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+    font-size: 2.8rem;
+    margin-bottom: 1.2rem;
 }
 
 .payments-header p {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
+    color: var(--text-secondary);
 }
 
 .payments-content {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 3rem 2rem;
+    padding: 4rem 2rem;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
 }
 
 .payment-info {
-    background: var(--gray-light);
-    padding: 2rem;
-    border-radius: 8px;
+    background: var(--card-bg);
+    padding: 2.5rem;
+    border-radius: 10px;
+    border: 1px solid var(--card-border);
 }
 
 .payment-info h3 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
-    color: var(--black);
+    color: var(--white);
 }
 
 .payment-info p {
-    color: #666;
+    color: var(--text-secondary);
     margin-bottom: 1.5rem;
+    line-height: 1.7;
 }
 
 .payment-methods {
@@ -593,31 +604,32 @@ body {
 }
 
 .payment-method {
-    background: var(--white);
+    background: var(--gray-dark);
     padding: 1.5rem;
     border-left: 4px solid var(--bronze);
-    border-radius: 4px;
+    border-radius: 6px;
 }
 
 .payment-method h4 {
-    color: var(--black);
+    color: var(--white);
     margin-bottom: 0.5rem;
 }
 
 .payment-method p {
-    color: #666;
+    color: var(--text-secondary);
     font-size: 0.95rem;
+    margin-bottom: 0;
 }
 
 .payment-schedule {
-    background: var(--white);
+    background: var(--gray-dark);
     padding: 1.5rem;
-    border-radius: 4px;
+    border-radius: 6px;
     margin-top: 1.5rem;
 }
 
 .payment-schedule h4 {
-    color: var(--black);
+    color: var(--white);
     margin-bottom: 1rem;
 }
 
@@ -626,9 +638,13 @@ body {
 }
 
 .payment-schedule li {
-    padding: 0.5rem 0;
-    color: #666;
-    border-bottom: 1px solid #e0e0e0;
+    padding: 0.6rem 0;
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--card-border);
+}
+
+.payment-schedule li strong {
+    color: var(--bronze);
 }
 
 .payment-schedule li:last-child {
@@ -636,19 +652,20 @@ body {
 }
 
 .stripe-payment {
-    background: var(--gray-light);
-    padding: 2rem;
-    border-radius: 8px;
+    background: var(--card-bg);
+    padding: 2.5rem;
+    border-radius: 10px;
+    border: 1px solid var(--card-border);
 }
 
 .stripe-payment h3 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
-    color: var(--black);
+    color: var(--white);
 }
 
 .stripe-payment p {
-    color: #666;
+    color: var(--text-secondary);
     margin-bottom: 1.5rem;
 }
 
@@ -660,39 +677,49 @@ body {
     display: block;
     font-weight: 600;
     margin-bottom: 0.5rem;
-    color: var(--black);
+    color: var(--white);
 }
 
 .payment-input-group input {
     width: 100%;
-    padding: 0.75rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    padding: 0.85rem 1rem;
+    border: 1px solid var(--card-border);
+    border-radius: 6px;
     font-size: 1rem;
+    background-color: var(--gray-dark);
+    color: var(--text-primary);
+    transition: border-color 0.3s ease;
+}
+
+.payment-input-group input:focus {
+    outline: none;
+    border-color: var(--bronze);
+    box-shadow: 0 0 0 3px rgba(196, 154, 58, 0.15);
 }
 
 .stripe-note {
     font-size: 0.85rem;
-    color: #999;
+    color: var(--text-secondary);
     margin-top: 1rem;
     font-style: italic;
 }
 
 .payment-contact {
-    background: var(--gray-light);
-    padding: 2rem;
-    border-radius: 8px;
+    background: var(--card-bg);
+    padding: 2.5rem;
+    border-radius: 10px;
     text-align: center;
+    border: 1px solid var(--card-border);
 }
 
 .payment-contact h3 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
-    color: var(--black);
+    color: var(--white);
 }
 
 .payment-contact p {
-    color: #666;
+    color: var(--text-secondary);
     margin-bottom: 1.5rem;
 }
 
@@ -703,28 +730,30 @@ body {
 .footer {
     background: var(--black);
     color: var(--white);
-    margin-top: 4rem;
+    margin-top: 0;
+    border-top: 1px solid var(--card-border);
 }
 
 .footer-content {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 3rem 2rem;
+    padding: 4rem 2rem;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
+    gap: 2.5rem;
 }
 
 .footer-section h4 {
     color: var(--bronze);
-    margin-bottom: 1rem;
+    margin-bottom: 1.2rem;
     font-size: 1.1rem;
+    letter-spacing: 0.5px;
 }
 
 .footer-section p {
-    color: #ccc;
+    color: var(--text-secondary);
     font-size: 0.95rem;
-    line-height: 1.6;
+    line-height: 1.7;
 }
 
 .footer-section ul {
@@ -736,7 +765,7 @@ body {
 }
 
 .footer-section ul li a {
-    color: #ccc;
+    color: var(--text-secondary);
     text-decoration: none;
     transition: color 0.3s ease;
 }
@@ -747,11 +776,11 @@ body {
 
 .social-links {
     display: flex;
-    gap: 1rem;
+    gap: 1.2rem;
 }
 
 .social-links a {
-    color: #ccc;
+    color: var(--text-secondary);
     text-decoration: none;
     transition: color 0.3s ease;
 }
@@ -764,8 +793,9 @@ body {
     background: rgba(0, 0, 0, 0.5);
     padding: 1.5rem 2rem;
     text-align: center;
-    color: #aaa;
+    color: var(--text-secondary);
     font-size: 0.9rem;
+    border-top: 1px solid var(--card-border);
 }
 
 /* ========================================
@@ -784,6 +814,7 @@ body {
         gap: 0;
         display: none;
         padding: 1rem;
+        border-top: 1px solid var(--card-border);
     }
 
     .nav-menu.active {
@@ -791,7 +822,7 @@ body {
     }
 
     .nav-menu li {
-        border-bottom: 1px solid #333;
+        border-bottom: 1px solid var(--card-border);
         padding: 0.75rem 0;
     }
 
@@ -803,11 +834,11 @@ body {
     .hero {
         grid-template-columns: 1fr;
         gap: 2rem;
-        margin: 2rem auto;
+        margin: 3rem auto;
     }
 
     .hero-content h2 {
-        font-size: 1.8rem;
+        font-size: 2rem;
     }
 
     .hero-content p {
@@ -840,17 +871,11 @@ body {
 
     /* Inquire Page */
     .inquire-content {
-        grid-template-columns: 1fr;
         padding: 2rem 1rem;
     }
 
-    .form-container,
-    .calendly-container {
-        padding: 1.5rem;
-    }
-
-    .calendly-embed iframe {
-        height: 400px !important;
+    .form-container {
+        padding: 2rem 1.5rem;
     }
 
     /* Payments Page */
@@ -871,7 +896,7 @@ body {
 
     /* Buttons */
     .btn {
-        padding: 0.65rem 1.5rem;
+        padding: 0.7rem 1.5rem;
         font-size: 0.95rem;
     }
 
@@ -879,12 +904,12 @@ body {
     .services-header h2,
     .inquire-header h2,
     .payments-header h2 {
-        font-size: 1.8rem;
+        font-size: 2rem;
     }
 
     .featured-projects h3,
     .testimonials h3 {
-        font-size: 1.5rem;
+        font-size: 1.6rem;
     }
 }
 
@@ -898,7 +923,7 @@ body {
     }
 
     .hero-content h2 {
-        font-size: 1.5rem;
+        font-size: 1.6rem;
     }
 
     .service-content h3 {

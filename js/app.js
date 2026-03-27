@@ -193,34 +193,6 @@ class PaymentHandler {
 }
 
 /**
- * Calendly Integration
- */
-class CalendlyIntegration {
-    constructor() {
-        this.setupCalendly();
-    }
-
-    setupCalendly() {
-        // Add Calendly script to page
-        const script = document.createElement('script');
-        script.src = 'https://assets.calendly.com/assets/external/widget.js';
-        document.head.appendChild(script);
-
-        // Update the iframe src before this runs
-        this.updateCalendlyLink();
-    }
-
-    updateCalendlyLink() {
-        const calendlyIframe = document.querySelector('.calendly-embed iframe');
-        if (calendlyIframe) {
-            // Replace the src with your actual Calendly URL
-            // Example: https://calendly.com/your-username
-            calendlyIframe.src = 'https://calendly.com';
-        }
-    }
-}
-
-/**
  * Email Integration Setup
  */
 function setupEmailIntegration() {
@@ -261,9 +233,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Initialize payment handler
     const paymentHandler = new PaymentHandler();
-
-    // Initialize Calendly integration
-    const calendly = new CalendlyIntegration();
 
     // Setup email integration info
     setupEmailIntegration();
