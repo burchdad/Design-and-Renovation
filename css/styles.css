@@ -379,6 +379,14 @@ body {
     border-left: 4px solid var(--bronze);
 }
 
+.testimonial-rating {
+    display: inline-block;
+    color: var(--bronze);
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+    margin-bottom: 0.85rem;
+}
+
 .testimonial p {
     font-size: 1rem;
     line-height: 1.9;
@@ -390,6 +398,14 @@ body {
 .testimonial .author {
     color: var(--bronze);
     font-weight: 600;
+    display: block;
+}
+
+.verified-label {
+    display: inline-block;
+    margin-top: 0.35rem;
+    font-size: 0.82rem;
+    color: var(--text-secondary);
 }
 
 /* ========================================
@@ -456,6 +472,18 @@ body {
     line-height: 1.9;
     margin-bottom: 1.8rem;
     color: var(--text-secondary);
+}
+
+.service-list {
+    list-style: disc;
+    margin: 0 0 1.8rem 1.2rem;
+    color: var(--text-secondary);
+}
+
+.service-list li {
+    font-size: 1.05rem;
+    line-height: 1.9;
+    margin-bottom: 0.4rem;
 }
 
 .service-content .btn {
@@ -745,6 +773,14 @@ body {
     color: var(--text-secondary);
     margin-top: 1rem;
     font-style: italic;
+}
+
+.stripe-security-note {
+    font-size: 0.85rem;
+    color: rgba(196, 154, 58, 0.78);
+    margin-top: 0.85rem;
+    margin-bottom: 0;
+    text-align: center;
 }
 
 .payment-contact {
