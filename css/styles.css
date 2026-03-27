@@ -23,6 +23,7 @@
     --text-secondary: #999999;
     --card-bg: #141414;
     --card-border: #222222;
+    --font-display: 'Playfair Display', 'Libre Baskerville', Georgia, 'Times New Roman', serif;
 }
 
 html {
@@ -34,6 +35,21 @@ body {
     line-height: 1.7;
     color: var(--text-primary);
     background-color: var(--black);
+}
+
+.hero-content h2,
+.featured-projects h3,
+.testimonials h3,
+.services-header h2,
+.service-content h3,
+.inquire-header h2,
+.payments-header h2,
+.payment-info h3,
+.stripe-payment h3,
+.payment-contact h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: 0.2px;
 }
 
 /* ========================================
@@ -253,16 +269,34 @@ body {
     margin-top: 2.5rem;
 }
 
+.hero-image {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.45);
+}
+
+.hero-image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at center, rgba(0, 0, 0, 0) 46%, rgba(0, 0, 0, 0.22) 100%),
+        linear-gradient(rgba(11, 11, 11, 0.08), rgba(11, 11, 11, 0.08));
+    pointer-events: none;
+}
+
 .hero-image img {
     width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    display: block;
+    filter: contrast(1.07);
+    transform: scale(1.01);
 }
 
 /* Featured Projects */
 .featured-projects {
     max-width: 1200px;
-    margin: 6rem auto;
+    margin: 7rem auto;
     padding: 0 2rem;
 }
 
@@ -283,15 +317,15 @@ body {
     background: var(--card-bg);
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid var(--card-border);
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .project-card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
-    border-color: rgba(196, 154, 58, 0.3);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.28);
+    border-color: rgba(196, 154, 58, 0.2);
 }
 
 .project-card img {
@@ -318,9 +352,9 @@ body {
     background: var(--gray-dark);
     color: var(--white);
     padding: 6rem 2rem;
-    margin: 6rem 0 0;
-    border-top: 1px solid var(--card-border);
-    border-bottom: 1px solid var(--card-border);
+    margin: 7rem 0 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .testimonials h3 {
@@ -341,7 +375,7 @@ body {
     background: rgba(255, 255, 255, 0.03);
     padding: 2.5rem;
     border-radius: 10px;
-    border: 1px solid var(--card-border);
+    border: 1px solid rgba(255, 255, 255, 0.06);
     border-left: 4px solid var(--bronze);
 }
 
@@ -364,7 +398,7 @@ body {
 
 .services-header {
     text-align: center;
-    padding: 4rem 2rem;
+    padding: 5rem 2rem 4rem;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -391,11 +425,10 @@ body {
     grid-template-columns: 1fr 1fr;
     gap: 3.5rem;
     align-items: center;
-    margin-bottom: 4rem;
-    padding: 2.5rem;
-    background: var(--card-bg);
-    border-radius: 10px;
-    border: 1px solid var(--card-border);
+    margin-bottom: 5.5rem;
+    padding: 0;
+    background: transparent;
+    border: none;
 }
 
 .service-section-reverse {
@@ -408,8 +441,8 @@ body {
 
 .service-image img {
     width: 100%;
-    border-radius: 8px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border-radius: 6px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
 }
 
 .service-content h3 {
@@ -439,7 +472,7 @@ body {
     color: var(--white);
     text-align: center;
     padding: 4rem 2rem;
-    border-bottom: 1px solid var(--card-border);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .inquire-header h2 {
@@ -464,7 +497,8 @@ body {
     background: var(--card-bg);
     padding: 3rem;
     border-radius: 10px;
-    border: 1px solid var(--card-border);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
 }
 
 .inquiry-form {
@@ -562,7 +596,7 @@ body {
     background: var(--gray-dark);
     color: var(--white);
     padding: 4rem 2rem;
-    border-bottom: 1px solid var(--card-border);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .payments-header h2 {
@@ -578,17 +612,18 @@ body {
 .payments-content {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 4rem 2rem;
+    padding: 5rem 2rem;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    gap: 2.8rem;
 }
 
 .payment-info {
     background: var(--card-bg);
     padding: 2.5rem;
     border-radius: 10px;
-    border: 1px solid var(--card-border);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
 }
 
 .payment-info h3 {
@@ -614,6 +649,7 @@ body {
     padding: 1.5rem;
     border-left: 4px solid var(--bronze);
     border-radius: 6px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
 }
 
 .payment-method h4 {
@@ -661,7 +697,8 @@ body {
     background: var(--card-bg);
     padding: 2.5rem;
     border-radius: 10px;
-    border: 1px solid var(--card-border);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
 }
 
 .stripe-payment h3 {
@@ -715,7 +752,8 @@ body {
     padding: 2.5rem;
     border-radius: 10px;
     text-align: center;
-    border: 1px solid var(--card-border);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
 }
 
 .payment-contact h3 {
@@ -737,7 +775,7 @@ body {
     background: var(--black);
     color: var(--white);
     margin-top: 0;
-    border-top: 1px solid var(--card-border);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .footer-content {
@@ -868,8 +906,8 @@ body {
     .service-section {
         grid-template-columns: 1fr;
         gap: 1.5rem;
-        margin-bottom: 2rem;
-        padding: 1.5rem;
+        margin-bottom: 3rem;
+        padding: 0;
     }
 
     .service-section-reverse {
