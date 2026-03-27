@@ -67,6 +67,12 @@ body {
     font-weight: bold;
 }
 
+.logo-image {
+    width: 180px;
+    height: auto;
+    display: block;
+}
+
 .logo h1 {
     font-size: 1.6rem;
     letter-spacing: 3px;
@@ -756,6 +762,14 @@ body {
     line-height: 1.7;
 }
 
+.footer-logo-image {
+    width: 200px;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 1rem;
+}
+
 .footer-section ul {
     list-style: none;
 }
@@ -918,8 +932,8 @@ body {
         padding: 1rem;
     }
 
-    .logo h1 {
-        font-size: 1.2rem;
+    .logo-image {
+        width: 140px;
     }
 
     .hero-content h2 {

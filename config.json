@@ -41,25 +41,25 @@
       "id": "kitchen",
       "title": "Kitchen Remodel",
       "description": "Transform your kitchen into a culinary masterpiece. From custom cabinetry to state-of-the-art appliances, we design kitchens that blend aesthetics with functionality.",
-      "image_url": "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=400&h=350&fit=crop"
+      "image_url": "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=400&h=350&q=80"
     },
     {
       "id": "bathroom",
       "title": "Bathroom Renovation",
       "description": "Create your personal spa retreat. We design luxurious bathrooms with premium fixtures, spa-like features, and impeccable tile work.",
-      "image_url": "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=400&h=350&fit=crop"
+      "image_url": "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=400&h=350&q=80"
     },
     {
       "id": "basement",
       "title": "Basement Finishing & Garage Spaces",
       "description": "Unlock the potential of your basement and garage. We transform unfinished spaces into beautiful, functional areas.",
-      "image_url": "https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?w=400&h=350&fit=crop"
+      "image_url": "https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?auto=format&fit=crop&w=400&h=350&q=80"
     },
     {
       "id": "outdoor",
       "title": "Outdoor Living Space",
       "description": "Extend your living experience outdoors with custom patio design, deck construction, and landscaping integration.",
-      "image_url": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=400&h=350&fit=crop"
+      "image_url": "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=400&h=350&q=80"
     }
   ],
   "testimonials": [
