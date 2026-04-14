@@ -1,0 +1,29 @@
+# robots.txt for Haven Design & Build LLC
+# Allow search engines to index the site
+
+User-agent: *
+Allow: /
+Allow: /css/
+Allow: /js/
+Allow: /images/
+Disallow: /admin/
+Disallow: /.git/
+
+# Sitemap location
+Sitemap: https://www.designhavenbuild.com/sitemap.xml
+
+# Crawl delay (optional - in seconds, for respectful crawling)
+Crawl-delay: 1
+
+# User agents
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: MJ12bot
+Allow: /
+Crawl-delay: 5

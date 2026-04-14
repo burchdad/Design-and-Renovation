@@ -1,6 +1,102 @@
 // Haven Design & Build - App JavaScript
 
 /**
+ * Meta Tag Manager for SEO
+ */
+class MetaTagManager {
+    constructor() {
+        this.pageMetadata = {
+            home: {
+                title: 'Haven Design & Build LLC - Luxury Home Renovations',
+                description: 'Transform your home with expert design and craftsmanship. Luxury kitchens, bathrooms, and full-home renovations built to last.',
+                ogTitle: 'Haven Design & Build LLC - Luxury Home Renovations',
+                ogDescription: 'Transform your home with expert design and craftsmanship. Luxury kitchens, bathrooms, and full-home renovations built to last.',
+                ogImage: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&h=630&q=80',
+                url: 'https://www.designhavenbuild.com/'
+            },
+            services: {
+                title: 'Design & Build Services - Haven Design & Build LLC',
+                description: 'Explore our comprehensive renovation services: kitchen remodels, bathroom renovations, basement finishing, and outdoor living spaces.',
+                ogTitle: 'Premium Home Renovation Services - Haven Design & Build',
+                ogDescription: 'Kitchen, bathroom, basement, and outdoor living renovation services delivered with luxury finishes and expert craftsmanship.',
+                ogImage: 'https://www.designhavenbuild.com/images/Kitchen_remodel.jpg',
+                url: 'https://www.designhavenbuild.com/services'
+            },
+            inquire: {
+                title: 'Get a Quote - Haven Design & Build LLC',
+                description: 'Request a free consultation and quote for your home renovation project. Tell us about your vision.',
+                ogTitle: 'Request a Quote - Haven Design & Build LLC',
+                ogDescription: 'Get a free consultation for your luxury home renovation. Our team will discuss your project and provide a detailed quote.',
+                ogImage: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&h=630&q=80',
+                url: 'https://www.designhavenbuild.com/inquire'
+            },
+            faq: {
+                title: 'FAQ - Renovation Questions Answered | Haven Design & Build',
+                description: 'Frequently asked questions about kitchen renovations, bathroom remodels, timelines, costs, and our renovation process.',
+                ogTitle: 'Renovation FAQ - Questions About Kitchens & Bathrooms',
+                ogDescription: 'Find answers to common questions about home renovations, timelines, pricing, and our design process.',
+                ogImage: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&h=630&q=80',
+                url: 'https://www.designhavenbuild.com/faq'
+            },
+            payments: {
+                title: 'Payment Options - Haven Design & Build LLC',
+                description: 'Flexible payment solutions for your home renovation project. Multiple payment methods and financing options available.',
+                ogTitle: 'Payment Options - Haven Design & Build LLC',
+                ogDescription: 'Flexible payment plans and multiple payment methods for your renovation project.',
+                ogImage: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&h=630&q=80',
+                url: 'https://www.designhavenbuild.com/payments'
+            }
+        };
+    }
+
+    updateMetaTags(page) {
+        const metadata = this.pageMetadata[page];
+        if (!metadata) return;
+
+        // Update title
+        document.title = metadata.title;
+        
+        // Update meta description
+        let descMeta = document.querySelector('meta[name="description"]');
+        if (descMeta) descMeta.setAttribute('content', metadata.description);
+
+        // Update og:title
+        this.updateOrCreateMetaTag('property', 'og:title', metadata.ogTitle);
+        
+        // Update og:description
+        this.updateOrCreateMetaTag('property', 'og:description', metadata.ogDescription);
+        
+        // Update og:image
+        this.updateOrCreateMetaTag('property', 'og:image', metadata.ogImage);
+        
+        // Update og:url
+        this.updateOrCreateMetaTag('property', 'og:url', metadata.url);
+        
+        // Update canonical
+        let canonical = document.querySelector('link[rel="canonical"]');
+        if (canonical) canonical.setAttribute('href', metadata.url);
+
+        // Update Twitter card tags
+        this.updateOrCreateMetaTag('property', 'twitter:title', metadata.ogTitle);
+        this.updateOrCreateMetaTag('property', 'twitter:description', metadata.ogDescription);
+        this.updateOrCreateMetaTag('property', 'twitter:image', metadata.ogImage);
+        this.updateOrCreateMetaTag('property', 'twitter:url', metadata.url);
+    }
+
+    updateOrCreateMetaTag(attribute, attributeValue, content) {
+        let meta = document.querySelector(`meta[${attribute}="${attributeValue}"]`);
+        if (meta) {
+            meta.setAttribute('content', content);
+        } else {
+            meta = document.createElement('meta');
+            meta.setAttribute(attribute, attributeValue);
+            meta.setAttribute('content', content);
+            document.head.appendChild(meta);
+        }
+    }
+}
+
+/**
  * Navigation and Page Management
  */
 class NavigationManager {
@@ -8,6 +104,7 @@ class NavigationManager {
         this.hamburger = document.getElementById('hamburger');
         this.navMenu = document.getElementById('navMenu');
         this.navLinks = document.querySelectorAll('.nav-link');
+        this.metaTagManager = new MetaTagManager();
         this.init();
     }
 
@@ -53,6 +150,9 @@ class NavigationManager {
                     link.classList.add('active');
                 }
             });
+
+            // Update meta tags for SEO
+            this.metaTagManager.updateMetaTags(page);
 
             // Scroll to top
             window.scrollTo(0, 0);
