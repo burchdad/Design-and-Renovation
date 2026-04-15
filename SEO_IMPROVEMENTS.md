@@ -72,7 +72,7 @@
 Replace these placeholders in the LocalBusiness schema:
 ```json
 "telephone": "PHONE_NUMBER",
-"email": "BUSINESS_EMAIL",
+"email": "micah@designhavenbuild.com",
 "streetAddress": "YOUR_STREET_ADDRESS",
 "addressLocality": "YOUR_CITY",
 "addressRegion": "YOUR_STATE",

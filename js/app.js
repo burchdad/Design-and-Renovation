@@ -191,15 +191,14 @@ class FormHandler {
             timestamp: new Date().toLocaleString()
         };
 
-        // Try to send email using FormSubmit service (free alternative)
+        // Submit inquiry using Formspree
         try {
             // Disable submit button
             const submitBtn = this.form.querySelector('button[type="submit"]');
             submitBtn.disabled = true;
             submitBtn.textContent = 'Sending...';
 
-            // Option 1: Using FormSubmit.co (free email service)
-            const response = await fetch('https://formspree.io/f/mnqnqvpk', {
+            const response = await fetch('https://formspree.io/f/mjgjklao', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -308,7 +307,7 @@ function setupEmailIntegration() {
     1. Go to https://formspree.io
     2. Sign up and create a new form
     3. Copy your form ID (looks like: f/xxxxx)
-    4. Replace 'mnqnqvpk' in the fetch URL with your ID
+    4. Replace 'mjgjklao' in the fetch URL if you rotate your form ID
     5. Test the form
     
     Alternative Email Services:
