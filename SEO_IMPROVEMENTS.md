@@ -71,12 +71,12 @@
 ### Update Business Information (Update in index.html head)
 Replace these placeholders in the LocalBusiness schema:
 ```json
-"telephone": "PHONE_NUMBER",
+"telephone": "+17707225815",
 "email": "micah@designhavenbuild.com",
-"streetAddress": "YOUR_STREET_ADDRESS",
-"addressLocality": "YOUR_CITY",
-"addressRegion": "YOUR_STATE",
-"postalCode": "YOUR_ZIP"
+"addressLocality": "Marietta",
+"addressRegion": "GA",
+"addressCountry": "US",
+"hasMap": "<Google Maps profile URL>"
 ```
 
 Update social media links:

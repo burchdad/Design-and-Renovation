@@ -5,7 +5,7 @@
 ### Phase 1A: Configuration (30 minutes)
 - [ ] **Update business info in schema markup**
   - File: `index.html` (line ~380-390 in head)
-  - Replace: `PHONE_NUMBER`, `BUSINESS_EMAIL`, `YOUR_STREET_ADDRESS`, `YOUR_CITY`, `YOUR_STATE`, `YOUR_ZIP`
+  - Confirm values: phone, email, city/state, and Google Maps profile URL
   - Update: Facebook/Instagram URLs
 
 - [ ] **Test on your domain**
