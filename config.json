@@ -1,7 +1,7 @@
 {
   "site": {
     "title": "Haven Design & Build LLC",
-    "tagline": "Designing, Building & Repairing your home, one detail at a time.",
+    "tagline": "Designing, building, and repairing residential and commercial spaces, one detail at a time.",
     "copyright_year": 2026,
     "company_email": "info@havendesignandbuild.com",
     "company_phone": "+1 (000) 000-0000",
@@ -32,7 +32,7 @@
   },
   "social_media": {
     "facebook": "https://facebook.com/your-page",
-    "instagram": "https://instagram.com/your-account",
+    "instagram": "https://www.instagram.com/designhavenbuild",
     "linkedin": "https://linkedin.com/company/your-company",
     "youtube": "https://youtube.com/@your-channel"
   },
@@ -52,13 +52,13 @@
     {
       "id": "basement",
       "title": "Basement Finishing & Garage Spaces",
-      "description": "Unlock the potential of your basement and garage. We transform unfinished spaces into beautiful, functional areas.",
-      "image_url": "images/basement_finishing.jpg"
+      "description": "Unlock the potential of your basement and garage. We transform unfinished spaces into media rooms, lounges, offices, guest suites, and beautiful functional areas.",
+      "image_url": "https://images.unsplash.com/photo-1765959617888-30837a158667?auto=format&fit=crop&w=900&h=650&q=80"
     },
     {
       "id": "outdoor",
       "title": "Outdoor Living Space",
-      "description": "Extend your living experience outdoors with custom patio design, deck construction, and landscaping integration.",
+      "description": "Extend your living experience outdoors with custom deck construction, patio design, and landscaping integration.",
       "image_url": "images/outdoor_living.jpg"
     }
   ],

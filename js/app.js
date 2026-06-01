@@ -5,30 +5,31 @@
  */
 class MetaTagManager {
     constructor() {
+        this.baseUrl = 'https://www.designhavenbuild.com/';
         this.pageMetadata = {
             home: {
                 title: 'Haven Design & Build LLC - Luxury Home Renovations',
-                description: 'Transform your home with expert design and craftsmanship. Luxury kitchens, bathrooms, and full-home renovations built to last.',
+                description: 'Transform your home or commercial space with expert design and craftsmanship. Kitchens, bathrooms, basements, decks, and full renovations built to last.',
                 ogTitle: 'Haven Design & Build LLC - Luxury Home Renovations',
-                ogDescription: 'Transform your home with expert design and craftsmanship. Luxury kitchens, bathrooms, and full-home renovations built to last.',
+                ogDescription: 'Transform residential and commercial spaces with expert design and craftsmanship. Kitchens, bathrooms, basements, decks, and build-outs.',
                 ogImage: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&h=630&q=80',
                 url: 'https://www.designhavenbuild.com/'
             },
             services: {
                 title: 'Design & Build Services - Haven Design & Build LLC',
-                description: 'Explore our comprehensive renovation services: kitchen remodels, bathroom renovations, basement finishing, and outdoor living spaces.',
+                description: 'Explore residential and commercial renovation services: kitchen remodels, bathroom renovations, basement finishing, decks, and outdoor living spaces.',
                 ogTitle: 'Premium Home Renovation Services - Haven Design & Build',
-                ogDescription: 'Kitchen, bathroom, basement, and outdoor living renovation services delivered with luxury finishes and expert craftsmanship.',
+                ogDescription: 'Kitchen, bathroom, basement, deck, outdoor living, and commercial renovation services delivered with expert craftsmanship.',
                 ogImage: 'https://www.designhavenbuild.com/images/Kitchen_remodel.jpg',
-                url: 'https://www.designhavenbuild.com/services'
+                url: 'https://www.designhavenbuild.com/#services'
             },
             inquire: {
                 title: 'Get a Quote - Haven Design & Build LLC',
-                description: 'Request a free consultation and quote for your home renovation project. Tell us about your vision.',
+                description: 'Request a free consultation and quote for your residential or commercial renovation project.',
                 ogTitle: 'Request a Quote - Haven Design & Build LLC',
-                ogDescription: 'Get a free consultation for your luxury home renovation. Our team will discuss your project and provide a detailed quote.',
+                ogDescription: 'Get a free consultation for your residential or commercial renovation. Our team will discuss your project and next steps.',
                 ogImage: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&h=630&q=80',
-                url: 'https://www.designhavenbuild.com/inquire'
+                url: 'https://www.designhavenbuild.com/#inquire'
             },
             faq: {
                 title: 'FAQ - Renovation Questions Answered | Haven Design & Build',
@@ -36,7 +37,7 @@ class MetaTagManager {
                 ogTitle: 'Renovation FAQ - Questions About Kitchens & Bathrooms',
                 ogDescription: 'Find answers to common questions about home renovations, timelines, pricing, and our design process.',
                 ogImage: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&h=630&q=80',
-                url: 'https://www.designhavenbuild.com/faq'
+                url: 'https://www.designhavenbuild.com/#faq'
             },
             payments: {
                 title: 'Payment Options - Haven Design & Build LLC',
@@ -44,7 +45,23 @@ class MetaTagManager {
                 ogTitle: 'Payment Options - Haven Design & Build LLC',
                 ogDescription: 'Flexible payment plans and multiple payment methods for your renovation project.',
                 ogImage: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&h=630&q=80',
-                url: 'https://www.designhavenbuild.com/payments'
+                url: 'https://www.designhavenbuild.com/#payments'
+            },
+            connect: {
+                title: 'QR Code & Social Links - Haven Design & Build LLC',
+                description: 'Connect with Haven Design & Build online, open the inquiry form, visit payment options, or find social media pages.',
+                ogTitle: 'Connect With Haven Design & Build LLC',
+                ogDescription: 'Scan the website QR code or visit Haven Design & Build social pages, inquiry form, and payment tab.',
+                ogImage: 'https://www.designhavenbuild.com/images/Haven_transparent_logo.png',
+                url: 'https://www.designhavenbuild.com/#connect'
+            },
+            thanks: {
+                title: 'Thank You - Haven Design & Build LLC',
+                description: 'Thank you for contacting Haven Design & Build. We will review your renovation inquiry and follow up soon.',
+                ogTitle: 'Thank You - Haven Design & Build LLC',
+                ogDescription: 'Your Haven Design & Build inquiry has been received.',
+                ogImage: 'https://www.designhavenbuild.com/images/Haven_transparent_logo.png',
+                url: 'https://www.designhavenbuild.com/#thanks'
             }
         };
     }
@@ -104,6 +121,7 @@ class NavigationManager {
         this.hamburger = document.getElementById('hamburger');
         this.navMenu = document.getElementById('navMenu');
         this.navLinks = document.querySelectorAll('.nav-link');
+        this.pageLinks = document.querySelectorAll('[data-page]');
         this.metaTagManager = new MetaTagManager();
         this.init();
     }
@@ -113,13 +131,17 @@ class NavigationManager {
         this.hamburger.addEventListener('click', () => this.toggleMenu());
 
         // Navigation link clicks
-        this.navLinks.forEach(link => {
+        this.pageLinks.forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
                 const page = link.getAttribute('data-page');
-                this.navigateTo(page);
+                this.navigateTo(page, true);
                 this.closeMenu();
             });
+        });
+
+        window.addEventListener('hashchange', () => {
+            this.navigateTo(this.getPageFromHash(), false);
         });
     }
 
@@ -133,7 +155,12 @@ class NavigationManager {
         this.navMenu.classList.remove('active');
     }
 
-    navigateTo(page) {
+    getPageFromHash() {
+        const page = window.location.hash.replace('#', '');
+        return document.getElementById(page) ? page : 'home';
+    }
+
+    navigateTo(page, updateHash = false) {
         // Hide all pages
         const pages = document.querySelectorAll('.page');
         pages.forEach(p => p.style.display = 'none');
@@ -153,6 +180,10 @@ class NavigationManager {
 
             // Update meta tags for SEO
             this.metaTagManager.updateMetaTags(page);
+
+            if (updateHash) {
+                history.pushState(null, '', page === 'home' ? '#home' : `#${page}`);
+            }
 
             // Scroll to top
             window.scrollTo(0, 0);
@@ -188,8 +219,24 @@ class FormHandler {
             zip: formData.get('zip'),
             description: formData.get('description'),
             service: formData.get('service') || 'Not specified',
+            projectType: formData.get('projectType') || 'Not specified',
             timestamp: new Date().toLocaleString()
         };
+
+        if (!isValidEmail(data.email)) {
+            this.showMessage('Please enter a valid email address.', 'error');
+            return;
+        }
+
+        if (!isValidPhone(data.phone)) {
+            this.showMessage('Please enter a valid phone number.', 'error');
+            return;
+        }
+
+        if (!isValidZip(data.zip)) {
+            this.showMessage('Please enter a valid ZIP code.', 'error');
+            return;
+        }
 
         // Submit inquiry using Formspree
         try {
@@ -198,20 +245,16 @@ class FormHandler {
             submitBtn.disabled = true;
             submitBtn.textContent = 'Sending...';
 
-            const response = await fetch('https://formspree.io/f/mjgjklao', {
+            formData.set('_subject', `New Haven inquiry - ${data.service}`);
+            formData.set('_replyto', data.email);
+            formData.set('timestamp', data.timestamp);
+
+            const response = await fetch(this.form.action, {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
                 },
-                body: JSON.stringify({
-                    name: data.name,
-                    email: data.email,
-                    phone: data.phone,
-                    zip: data.zip,
-                    service: data.service,
-                    description: data.description,
-                    timestamp: data.timestamp
-                })
+                body: formData
             });
 
             if (response.ok) {
@@ -222,9 +265,10 @@ class FormHandler {
                 this.form.reset();
                 submitBtn.disabled = false;
                 submitBtn.textContent = 'Submit Inquiry';
+                window.location.hash = 'thanks';
             } else {
                 this.showMessage(
-                    'There was an issue submitting your inquiry. Please try again or contact us directly.',
+                    'There was an issue submitting your inquiry. Please email micah@designhavenbuild.com directly.',
                     'error'
                 );
                 submitBtn.disabled = false;
@@ -233,7 +277,7 @@ class FormHandler {
         } catch (error) {
             console.error('Form submission error:', error);
             this.showMessage(
-                'Connection error. Please check your internet and try again.',
+                'Connection error. Please email micah@designhavenbuild.com directly.',
                 'error'
             );
             const submitBtn = this.form.querySelector('button[type="submit"]');
@@ -261,6 +305,7 @@ class PaymentHandler {
     constructor() {
         this.stripeButton = document.getElementById('stripeButton');
         this.paymentAmount = document.getElementById('paymentAmount');
+        this.paymentLink = '';
         this.init();
     }
 
@@ -278,10 +323,12 @@ class PaymentHandler {
             return;
         }
 
-        // Note: Replace 'YOUR_STRIPE_PUBLISHABLE_KEY' with your actual Stripe publishable key
-        // and implement proper Stripe integration
+        if (this.paymentLink) {
+            window.location.href = this.paymentLink;
+            return;
+        }
 
-        alert(`Payment feature coming soon!\n\nAmount: $${amount}\n\nTo integrate Stripe:\n1. Get your Stripe keys from dashboard.stripe.com\n2. Replace the placeholder in the code with your publishable key\n3. Set up a payment endpoint on your backend`);
+        alert(`Payment tab is ready, but the live payment link is not connected yet.\n\nAmount entered: $${amount}\n\nSend your Stripe Payment Link, Square checkout link, or preferred payment portal URL and it can be connected here.`);
 
         // Example of how to integrate Stripe:
         // const stripe = Stripe('YOUR_STRIPE_PUBLISHABLE_KEY');
@@ -307,7 +354,7 @@ function setupEmailIntegration() {
     1. Go to https://formspree.io
     2. Sign up and create a new form
     3. Copy your form ID (looks like: f/xxxxx)
-    4. Replace 'mjgjklao' in the fetch URL if you rotate your form ID
+    4. Replace the form action in index.html if you rotate your form ID
     5. Test the form
     
     Alternative Email Services:
@@ -336,8 +383,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Setup email integration info
     setupEmailIntegration();
 
-    // Set home as default page
-    navigation.navigateTo('home');
+    // Set initial page from hash or home
+    navigation.navigateTo(navigation.getPageFromHash());
 
     // Close mobile menu on window resize
     window.addEventListener('resize', () => {

@@ -21,13 +21,13 @@ This file helps you track your integration credentials and setup progress.
 
 ### Formspree (If using this)
 - [ ] Account created at: https://formspree.io
-- [ ] Form ID: `YOUR_FORMSPREE_ID`
+- [x] Form ID: `xlgvyvkp`
 - [ ] Email receiving submissions: ________________
 - [ ] Test email received: Yes / No
 
 **Update in `js/app.js` (line ~82)**:
 ```javascript
-const response = await fetch('https://formspree.io/f/YOUR_FORMSPREE_ID', {
+const response = await fetch('https://formspree.io/f/xlgvyvkp', {
 ```
 
 ### EmailJS (Alternative)

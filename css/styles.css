@@ -37,16 +37,20 @@ body {
     background-color: var(--black);
 }
 
+.hero-content h1,
 .hero-content h2,
 .featured-projects h3,
+.about-copy h2,
 .testimonials h3,
 .services-header h2,
 .service-content h3,
 .inquire-header h2,
 .payments-header h2,
+.connect-header h2,
 .payment-info h3,
 .stripe-payment h3,
-.payment-contact h3 {
+.payment-contact h3,
+.qr-card h3 {
     font-family: var(--font-display);
     font-weight: 600;
     letter-spacing: 0.2px;
@@ -108,7 +112,7 @@ body {
 .nav-menu {
     display: flex;
     list-style: none;
-    gap: 2.5rem;
+    gap: 1.8rem;
 }
 
 .nav-link {
@@ -250,12 +254,12 @@ body {
     padding: 0 2rem;
 }
 
-.hero-content h2 {
+.hero-content h1 {
     font-size: 2.8rem;
     line-height: 1.2;
     margin-bottom: 1.8rem;
     color: var(--white);
-    letter-spacing: -0.5px;
+    letter-spacing: 0;
 }
 
 .hero-content p {
@@ -265,8 +269,15 @@ body {
     line-height: 1.9;
 }
 
-.hero-content .btn {
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
     margin-top: 2.5rem;
+}
+
+.hero-content .btn {
+    margin-top: 0;
 }
 
 .hero-image {
@@ -291,6 +302,71 @@ body {
     display: block;
     filter: contrast(1.07);
     transform: scale(1.01);
+}
+
+/* About / Commercial */
+.about-section {
+    max-width: 1200px;
+    margin: 0 auto 7rem;
+    padding: 4rem 2rem;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 3rem;
+    align-items: center;
+    background: var(--gray-dark);
+    border-top: 1px solid rgba(196, 154, 58, 0.24);
+    border-bottom: 1px solid rgba(196, 154, 58, 0.24);
+}
+
+.section-kicker {
+    display: inline-block;
+    color: var(--bronze);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.about-copy h2 {
+    color: var(--white);
+    font-size: 2.2rem;
+    line-height: 1.25;
+    margin-bottom: 1.2rem;
+}
+
+.about-copy p {
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    line-height: 1.9;
+}
+
+.about-highlights {
+    display: grid;
+    gap: 1rem;
+}
+
+.about-highlights div {
+    padding: 1.3rem;
+    background: var(--card-bg);
+    border-left: 4px solid var(--bronze);
+    border-radius: 6px;
+}
+
+.about-highlights strong,
+.about-highlights span {
+    display: block;
+}
+
+.about-highlights strong {
+    color: var(--white);
+    margin-bottom: 0.35rem;
+}
+
+.about-highlights span {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
 }
 
 /* Featured Projects */
@@ -597,6 +673,14 @@ body {
     text-align: center;
 }
 
+.form-note a {
+    color: var(--bronze);
+}
+
+.form-note-email {
+    margin-top: 1rem;
+}
+
 .form-message {
     padding: 1.5rem;
     border-radius: 6px;
@@ -803,6 +887,140 @@ body {
     margin-bottom: 1.5rem;
 }
 
+.payment-tab-link {
+    margin-top: 1rem;
+}
+
+/* ========================================
+   CONNECT / QR PAGE
+   ======================================== */
+
+.connect-header {
+    text-align: center;
+    background: var(--gray-dark);
+    color: var(--white);
+    padding: 4rem 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.connect-header h2 {
+    font-size: 2.8rem;
+    margin-bottom: 1.2rem;
+}
+
+.connect-header p {
+    color: var(--text-secondary);
+    max-width: 620px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+}
+
+.connect-content {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 5rem 2rem;
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 2rem;
+    align-items: stretch;
+}
+
+.qr-card,
+.connect-links {
+    background: var(--card-bg);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
+}
+
+.qr-card {
+    text-align: center;
+}
+
+.qr-card img {
+    width: 220px;
+    height: 220px;
+    max-width: 100%;
+    border-radius: 6px;
+    background: var(--white);
+    padding: 0.5rem;
+    margin-bottom: 1.2rem;
+}
+
+.qr-card h3 {
+    color: var(--white);
+    margin-bottom: 0.5rem;
+}
+
+.qr-card p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.connect-links {
+    display: grid;
+    gap: 1rem;
+}
+
+.connect-links a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 52px;
+    padding: 0.85rem 1rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    border: 1px solid var(--card-border);
+    border-radius: 6px;
+    background: var(--gray-dark);
+    transition: border-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.connect-links a::after {
+    content: '>';
+    color: var(--bronze);
+}
+
+.connect-links a:hover {
+    color: var(--bronze);
+    border-color: rgba(196, 154, 58, 0.45);
+    transform: translateY(-2px);
+}
+
+/* ========================================
+   THANK YOU PAGE
+   ======================================== */
+
+.thanks-content {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 7rem 2rem;
+    text-align: center;
+}
+
+.thanks-content h2 {
+    font-family: var(--font-display);
+    font-size: 2.8rem;
+    color: var(--white);
+    margin-bottom: 1rem;
+    letter-spacing: 0;
+}
+
+.thanks-content p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    line-height: 1.9;
+    margin-bottom: 2rem;
+}
+
+.thanks-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
 /* ========================================
    FAQ PAGE
    ======================================== */
@@ -819,7 +1037,7 @@ body {
     font-size: 2.8rem;
     margin-bottom: 1rem;
     color: var(--white);
-    letter-spacing: -1px;
+    letter-spacing: 0;
 }
 
 .faq-header p {
@@ -910,7 +1128,7 @@ body {
     font-size: 1.8rem;
     color: var(--white);
     margin-bottom: 1rem;
-    letter-spacing: -0.5px;
+    letter-spacing: 0;
 }
 
 .faq-cta p {
@@ -1041,8 +1259,22 @@ body {
         margin: 3rem auto;
     }
 
-    .hero-content h2 {
+    .hero-content h1 {
         font-size: 2rem;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+    }
+
+    .hero-actions .btn {
+        width: 100%;
+    }
+
+    .about-section {
+        grid-template-columns: 1fr;
+        margin-bottom: 4rem;
+        padding: 3rem 1.5rem;
     }
 
     .hero-content p {
@@ -1086,6 +1318,23 @@ body {
     .payments-content {
         grid-template-columns: 1fr;
         padding: 2rem 1rem;
+    }
+
+    .connect-content {
+        grid-template-columns: 1fr;
+        padding: 2rem 1rem;
+    }
+
+    .thanks-content {
+        padding: 5rem 1.5rem;
+    }
+
+    .thanks-actions {
+        flex-direction: column;
+    }
+
+    .thanks-actions .btn {
+        width: 100%;
     }
 
     /* Testimonials */
@@ -1140,7 +1389,8 @@ body {
     /* Headers */
     .services-header h2,
     .inquire-header h2,
-    .payments-header h2 {
+    .payments-header h2,
+    .connect-header h2 {
         font-size: 2rem;
     }
 
@@ -1159,8 +1409,16 @@ body {
         width: 140px;
     }
 
-    .hero-content h2 {
+    .hero-content h1 {
         font-size: 1.6rem;
+    }
+
+    .about-copy h2 {
+        font-size: 1.55rem;
+    }
+
+    .thanks-content h2 {
+        font-size: 2rem;
     }
 
     .service-content h3 {
