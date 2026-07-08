@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Haven Admin Dashboard | Website Support</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <main class="admin-shell">
+    <section class="admin-panel" id="loginPanel">
+      <span class="section-kicker">Private Admin</span>
+      <h1>Haven Website Dashboard</h1>
+      <p class="muted">Sign in to send website support tickets and operational notes to Ghost Mission Control.</p>
+      <form id="adminLoginForm" class="admin-form">
+        <label for="adminPassword">Admin Password</label>
+        <input id="adminPassword" name="password" type="password" autocomplete="current-password" required>
+        <button class="btn btn-primary" type="submit">Open Dashboard</button>
+      </form>
+      <p class="form-message" id="loginMessage" style="display: none;"></p>
+    </section>
+
+    <section class="admin-panel" id="dashboardPanel" hidden>
+      <div class="admin-topbar">
+        <div>
+          <span class="section-kicker">Website Operations</span>
+          <h1>Haven Admin Dashboard</h1>
+          <p class="muted">Create support tickets, test Mission Control connectivity, and route website issues for follow-up.</p>
+        </div>
+        <button class="btn btn-secondary" id="logoutButton" type="button">Log Out</button>
+      </div>
+
+      <div class="admin-status-grid">
+        <article>
+          <span>Admin Session</span>
+          <strong id="sessionStatus">Checking...</strong>
+        </article>
+        <article>
+          <span>Mission Control Endpoint</span>
+          <strong id="endpointStatus">Checking...</strong>
+        </article>
+        <article>
+          <span>Mission Control Auth</span>
+          <strong id="authStatus">Checking...</strong>
+        </article>
+      </div>
+
+      <div class="admin-grid">
+        <form id="adminTicketForm" class="admin-card">
+          <h2>Create Support Ticket</h2>
+          <label for="ticketCategory">Category</label>
+          <select id="ticketCategory" name="category">
+            <option>Website Support</option>
+            <option>Inquiry/Form Issue</option>
+            <option>Payment Page Issue</option>
+            <option>SEO / Visibility Request</option>
+            <option>Client Content Update</option>
+          </select>
+
+          <label for="ticketPriority">Priority</label>
+          <select id="ticketPriority" name="priority">
+            <option value="normal">Normal</option>
+            <option value="high">High</option>
+            <option value="urgent">Urgent</option>
+          </select>
+
+          <label for="ticketSubject">Subject</label>
+          <input id="ticketSubject" name="subject" type="text" placeholder="What needs attention?" required>
+
+          <label for="ticketMessage">Details</label>
+          <textarea id="ticketMessage" name="message" rows="7" placeholder="Describe the issue, request, or change needed." required></textarea>
+
+          <button class="btn btn-primary" type="submit">Send to Mission Control</button>
+          <p class="form-message" id="ticketMessageStatus" style="display: none;"></p>
+        </form>
+
+        <aside class="admin-card">
+          <h2>Backend Routing</h2>
+          <p class="muted">Tickets created here and from the public website helper are posted through the Haven backend first, then forwarded to Ghost Mission Control.</p>
+          <ul class="admin-checklist">
+            <li>Admin access uses a server session cookie.</li>
+            <li>Public helper tickets do not expose Mission Control credentials.</li>
+            <li>Mission Control env vars stay in Vercel.</li>
+            <li>GEO monthly-client automation can be attached later as a separate workflow.</li>
+          </ul>
+          <button class="btn btn-secondary" id="refreshStatusButton" type="button">Refresh Status</button>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <script src="/js/admin-dashboard.js?v=20260708"></script>
+</body>
+</html>
