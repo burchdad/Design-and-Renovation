@@ -9,9 +9,9 @@ class MetaTagManager {
         this.pageMetadata = {
             home: {
                 title: 'Haven Design & Build LLC | Marietta GA Renovation Contractor',
-                description: 'Residential and commercial renovation services in Marietta, Cobb County, and greater Atlanta including kitchens, bathrooms, basements, decks, outdoor living, and build-outs.',
+                description: 'Marietta renovation contractor for kitchens, bathrooms, basements, decks, outdoor living, and commercial build-outs across Cobb County and greater Atlanta.',
                 ogTitle: 'Haven Design & Build LLC | Marietta Renovation Contractor',
-                ogDescription: 'Design-build renovation for homes and commercial spaces across Marietta, Cobb County, and greater Atlanta.',
+                ogDescription: 'Residential and commercial design-build remodeling in Marietta, Cobb County, and greater Atlanta.',
                 ogImage: 'https://www.designhavenbuild.com/images/modern_living.jpg',
                 url: 'https://www.designhavenbuild.com/'
             },
@@ -41,9 +41,9 @@ class MetaTagManager {
             },
             payments: {
                 title: 'Payment Options - Haven Design & Build LLC',
-                description: 'Flexible payment solutions for your home renovation project. Multiple payment methods and financing options available.',
+                description: 'Payment options for Haven Design & Build renovation projects, including the typical 40%, 30%, 30% project payment schedule.',
                 ogTitle: 'Payment Options - Haven Design & Build LLC',
-                ogDescription: 'Flexible payment plans and multiple payment methods for your renovation project.',
+                ogDescription: 'Payment options and the typical 40%, 30%, 30% schedule for renovation projects.',
                 ogImage: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&h=630&q=80',
                 url: 'https://www.designhavenbuild.com/#payments'
             },

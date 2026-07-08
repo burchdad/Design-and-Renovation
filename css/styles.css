@@ -659,7 +659,7 @@ body {
 }
 
 .seo-content-grid article {
-    background: var(--dark-gray);
+    background: var(--gray-dark);
     border: 1px solid rgba(201, 169, 110, 0.22);
     border-radius: 10px;
     padding: 2rem;
