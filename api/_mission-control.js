@@ -105,37 +105,48 @@ function getMissionEndpoint() {
   const direct = process.env.GHOST_MISSION_CONTROL_WEBHOOK_URL || process.env.MISSION_CONTROL_WEBHOOK_URL;
   if (direct) return direct;
 
-  const base = process.env.GHOST_MISSION_CONTROL_URL || process.env.MISSION_CONTROL_URL;
+  const base =
+    process.env.GHOST_MISSION_CONTROL_URL ||
+    process.env.MISSION_CONTROL_URL ||
+    "https://ghostmissioncontrol-production.up.railway.app";
   if (!base) return "";
-  const path = process.env.GHOST_MISSION_CONTROL_TICKET_PATH || process.env.MISSION_CONTROL_TICKET_PATH || "/api/support/tickets";
+  const path = process.env.GHOST_MISSION_CONTROL_TICKET_PATH || process.env.MISSION_CONTROL_TICKET_PATH || "/mission/web-helper-requests";
   return `${base.replace(/\/+$/, "")}${path.startsWith("/") ? path : `/${path}`}`;
 }
 
+function getMissionSecret() {
+  return String(
+    process.env.GHOST_WEB_HELPER_WEBHOOK_SECRET ||
+      process.env.GHOST_MISSION_CONTROL_WEBHOOK_SECRET ||
+      process.env.CLIENT_PORTAL_GEO_WEBHOOK_SECRET ||
+      process.env.CLIENT_PORTAL_PROPOSAL_WEBHOOK_SECRET ||
+      process.env.GHOST_MISSION_CONTROL_API_KEY ||
+      process.env.MISSION_CONTROL_API_KEY ||
+      process.env.GHOST_MISSION_CONTROL_TOKEN ||
+      process.env.MISSION_CONTROL_TOKEN ||
+      process.env.CRON_SECRET ||
+      ""
+  ).trim();
+}
+
 function getMissionHeaders() {
-  const token =
-    process.env.GHOST_MISSION_CONTROL_API_KEY ||
-    process.env.MISSION_CONTROL_API_KEY ||
-    process.env.GHOST_MISSION_CONTROL_TOKEN ||
-    process.env.MISSION_CONTROL_TOKEN ||
-    process.env.CRON_SECRET ||
-    "";
+  const token = getMissionSecret();
 
   return {
     "Content-Type": "application/json",
-    ...(token ? { Authorization: `Bearer ${token}`, "x-mission-control-token": token } : {})
+    ...(token ? {
+      Authorization: `Bearer ${token}`,
+      "x-ghost-webhook-secret": token,
+      "x-webhook-secret": token,
+      "x-mission-control-token": token
+    } : {})
   };
 }
 
 function missionStatus() {
   return {
     endpointConfigured: Boolean(getMissionEndpoint()),
-    authConfigured: Boolean(
-      process.env.GHOST_MISSION_CONTROL_API_KEY ||
-      process.env.MISSION_CONTROL_API_KEY ||
-      process.env.GHOST_MISSION_CONTROL_TOKEN ||
-      process.env.MISSION_CONTROL_TOKEN ||
-      process.env.CRON_SECRET
-    )
+    authConfigured: Boolean(getMissionSecret())
   };
 }
 
@@ -149,13 +160,39 @@ async function forwardToMissionControl(ticket) {
     method: "POST",
     headers: getMissionHeaders(),
     body: JSON.stringify({
-      type: "website_support_ticket",
-      source: "designhavenbuild.com",
-      client: {
-        name: "Haven Design & Build LLC",
-        website: "https://www.designhavenbuild.com/"
+      source: "client_admin_dashboard",
+      requestType: "website_support",
+      request_type: "website_support",
+      priority: ticket.priority,
+      summary: ticket.subject,
+      title: ticket.subject,
+      details: ticket.message,
+      message: ticket.message,
+      pageUrl: ticket.pageUrl,
+      page_url: ticket.pageUrl,
+      siteUrl: "https://www.designhavenbuild.com/",
+      site_url: "https://www.designhavenbuild.com/",
+      websiteUrl: "https://www.designhavenbuild.com/",
+      website_url: "https://www.designhavenbuild.com/",
+      clientName: "Haven Design & Build LLC",
+      client_name: "Haven Design & Build LLC",
+      client: "Haven Design & Build LLC",
+      repo: "burchdad/Design-and-Renovation",
+      githubRepo: "burchdad/Design-and-Renovation",
+      webHelperId: "haven-design-build-web-helper",
+      ticket,
+      contact: {
+        name: ticket.name,
+        email: ticket.email,
+        phone: ticket.phone
       },
-      ticket
+      metadata: {
+        ...ticket.metadata,
+        sourceTicketId: ticket.id,
+        source: ticket.source,
+        category: ticket.category,
+        userAgent: ticket.userAgent
+      }
     })
   });
 
