@@ -1,0 +1,10 @@
+{
+  "name": "design-haven-build-site",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Static website and Vercel functions for Design Haven Build.",
+  "scripts": {
+    "check": "node --check api/_mission-control.js && node --check api/support-ticket.js && node --check api/admin-login.js && node --check api/admin-session.js && node --check js/admin-dashboard.js && node --check js/website-helper-agent.js && node --check js/app.js",
+    "build": "node -e \"console.log('Static site build: no bundled assets required.')\""
+  }
+}

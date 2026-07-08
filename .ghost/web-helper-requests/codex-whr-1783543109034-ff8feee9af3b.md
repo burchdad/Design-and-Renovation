@@ -63,3 +63,10 @@ Guardrails:
 - Keep all work on this testing branch until owner approval.
 - Do not merge to main from this automated step.
 - If credentials, DNS, payment, legal, or sensitive data is needed, stop and request owner approval.
+
+## Owner Review Note
+
+- Changed files: `package.json`, `.ghost/web-helper-requests/codex-whr-1783543109034-ff8feee9af3b.md`
+- Verification: `npm run check && npm run build` passed on 2026-07-08.
+- Preview/deployment status: no production merge or deployment performed from this testing branch.
+- Remaining risk: connector delivery to Ghost Mission Control still depends on production environment variables and live webhook availability.
