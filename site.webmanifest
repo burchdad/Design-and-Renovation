@@ -1,0 +1,17 @@
+{
+  "name": "Haven Design & Build LLC",
+  "short_name": "Haven Build",
+  "description": "Residential and commercial renovation services in Marietta, Cobb County, and greater Atlanta.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f0f0f",
+  "theme_color": "#1a1a1a",
+  "icons": [
+    {
+      "src": "/images/Haven_transparent_logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

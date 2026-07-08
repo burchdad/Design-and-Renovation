@@ -6,6 +6,9 @@ Allow: /
 Allow: /css/
 Allow: /js/
 Allow: /images/
+Allow: /services/
+Allow: /llms.txt
+Allow: /humans.txt
 Disallow: /admin/
 Disallow: /.git/
 

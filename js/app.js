@@ -8,34 +8,34 @@ class MetaTagManager {
         this.baseUrl = 'https://www.designhavenbuild.com/';
         this.pageMetadata = {
             home: {
-                title: 'Haven Design & Build LLC - Luxury Home Renovations',
-                description: 'Transform your home or commercial space with expert design and craftsmanship. Kitchens, bathrooms, basements, decks, and full renovations built to last.',
-                ogTitle: 'Haven Design & Build LLC - Luxury Home Renovations',
-                ogDescription: 'Transform residential and commercial spaces with expert design and craftsmanship. Kitchens, bathrooms, basements, decks, and build-outs.',
-                ogImage: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&h=630&q=80',
+                title: 'Haven Design & Build LLC | Marietta GA Renovation Contractor',
+                description: 'Residential and commercial renovation services in Marietta, Cobb County, and greater Atlanta including kitchens, bathrooms, basements, decks, outdoor living, and build-outs.',
+                ogTitle: 'Haven Design & Build LLC | Marietta Renovation Contractor',
+                ogDescription: 'Design-build renovation for homes and commercial spaces across Marietta, Cobb County, and greater Atlanta.',
+                ogImage: 'https://www.designhavenbuild.com/images/modern_living.jpg',
                 url: 'https://www.designhavenbuild.com/'
             },
             services: {
-                title: 'Design & Build Services - Haven Design & Build LLC',
-                description: 'Explore residential and commercial renovation services: kitchen remodels, bathroom renovations, basement finishing, decks, and outdoor living spaces.',
-                ogTitle: 'Premium Home Renovation Services - Haven Design & Build',
-                ogDescription: 'Kitchen, bathroom, basement, deck, outdoor living, and commercial renovation services delivered with expert craftsmanship.',
+                title: 'Renovation Services in Marietta GA | Haven Design & Build LLC',
+                description: 'Kitchen remodeling, bathroom remodeling, basement finishing, decks, outdoor living, and commercial renovation services in Marietta and Cobb County.',
+                ogTitle: 'Renovation Services in Marietta GA | Haven Design & Build',
+                ogDescription: 'Kitchen, bathroom, basement, deck, outdoor living, and commercial renovation services in Marietta, Cobb County, and greater Atlanta.',
                 ogImage: 'https://www.designhavenbuild.com/images/Kitchen_remodel.jpg',
                 url: 'https://www.designhavenbuild.com/#services'
             },
             inquire: {
-                title: 'Get a Quote - Haven Design & Build LLC',
-                description: 'Request a free consultation and quote for your residential or commercial renovation project.',
+                title: 'Request a Renovation Quote | Haven Design & Build LLC',
+                description: 'Request a renovation quote for a residential or commercial project in Marietta, Cobb County, or the greater Atlanta area.',
                 ogTitle: 'Request a Quote - Haven Design & Build LLC',
                 ogDescription: 'Get a free consultation for your residential or commercial renovation. Our team will discuss your project and next steps.',
                 ogImage: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&h=630&q=80',
                 url: 'https://www.designhavenbuild.com/#inquire'
             },
             faq: {
-                title: 'FAQ - Renovation Questions Answered | Haven Design & Build',
-                description: 'Frequently asked questions about kitchen renovations, bathroom remodels, timelines, costs, and our renovation process.',
-                ogTitle: 'Renovation FAQ - Questions About Kitchens & Bathrooms',
-                ogDescription: 'Find answers to common questions about home renovations, timelines, pricing, and our design process.',
+                title: 'Renovation FAQ | Marietta Remodeling Questions Answered',
+                description: 'Answers about kitchen remodeling, bathroom renovations, decks, basement finishing, commercial renovation, timelines, payment schedule, and service areas.',
+                ogTitle: 'Renovation FAQ | Haven Design & Build LLC',
+                ogDescription: 'Answers about Marietta-area remodeling, commercial renovation, decks, timelines, pricing, and how to start.',
                 ogImage: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&h=630&q=80',
                 url: 'https://www.designhavenbuild.com/#faq'
             },
