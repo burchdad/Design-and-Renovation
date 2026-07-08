@@ -552,6 +552,16 @@ body {
     border-bottom-color: var(--gold);
 }
 
+.inline-link {
+    color: var(--bronze);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.inline-link:hover {
+    color: var(--gold);
+}
+
 .page-support-section {
     max-width: 1200px;
     margin: 6rem auto;
