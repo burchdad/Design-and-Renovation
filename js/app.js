@@ -319,7 +319,7 @@ class PaymentHandler {
         const amount = this.paymentAmount.value;
 
         if (!amount || amount <= 0) {
-            alert('Please enter a valid payment amount');
+            alert('Enter the amount shown on your approved quote or invoice, then use the secure payment link sent with that quote or invoice.');
             return;
         }
 
@@ -328,43 +328,8 @@ class PaymentHandler {
             return;
         }
 
-        alert(`Payment tab is ready, but the live payment link is not connected yet.\n\nAmount entered: $${amount}\n\nSend your Stripe Payment Link, Square checkout link, or preferred payment portal URL and it can be connected here.`);
-
-        // Example of how to integrate Stripe:
-        // const stripe = Stripe('YOUR_STRIPE_PUBLISHABLE_KEY');
-        // stripe.redirectToCheckout({
-        //     sessionId: 'YOUR_SESSION_ID'
-        // });
+        alert(`Amount entered: $${amount}\n\nPlease use the secure Jobber/Stripe-powered payment link sent with your approved quote or invoice. If you need that link resent, contact Haven Design & Build through the inquiry form or email micah@designhavenbuild.com.`);
     }
-}
-
-/**
- * Email Integration Setup
- */
-function setupEmailIntegration() {
-    // This guide will help set up email for the contact form:
-    console.log(`
-    ========== EMAIL INTEGRATION SETUP ==========
-    
-    Current Implementation Uses: Formspree (formspree.io)
-    - Free for up to 50 submissions/month
-    - More options available for higher volumes
-    
-    To activate:
-    1. Go to https://formspree.io
-    2. Sign up and create a new form
-    3. Copy your form ID (looks like: f/xxxxx)
-    4. Replace the form action in index.html if you rotate your form ID
-    5. Test the form
-    
-    Alternative Email Services:
-    - EmailJS (emailjs.com) - Client-side only
-    - SendGrid (sendgrid.com) - Requires backend
-    - Resend (resend.com) - Modern API
-    - AWS SES - Cost-effective for production
-    
-    ============================================
-    `);
 }
 
 /**
@@ -380,9 +345,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize payment handler
     const paymentHandler = new PaymentHandler();
 
-    // Setup email integration info
-    setupEmailIntegration();
-
     // Set initial page from hash or home
     navigation.navigateTo(navigation.getPageFromHash());
 
@@ -394,7 +356,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    console.log('✅ Haven Design & Build website initialized');
+    console.info('Haven Design & Build website initialized');
 });
 
 /**

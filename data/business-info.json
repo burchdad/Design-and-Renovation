@@ -1,0 +1,47 @@
+{
+  "businessName": "Haven Design & Build LLC",
+  "websiteUrl": "https://www.designhavenbuild.com/",
+  "primaryPhone": "+1 770-722-5815",
+  "primaryPhoneE164": "+17707225815",
+  "primaryEmail": "micah@designhavenbuild.com",
+  "publicAddress": {
+    "streetAddress": "",
+    "city": "Marietta",
+    "state": "GA",
+    "zip": "",
+    "country": "US",
+    "notes": "Street address and ZIP are intentionally blank until the owner approves publishing them."
+  },
+  "serviceAreas": [
+    "Marietta, GA",
+    "Cobb County, GA",
+    "Greater Atlanta, GA"
+  ],
+  "socialProfiles": {
+    "facebook": "https://www.facebook.com/profile.php?id=61574372951184",
+    "instagram": "https://www.instagram.com/designhavenbuild",
+    "linkedin": "",
+    "youtube": ""
+  },
+  "googleBusinessProfileUrl": "",
+  "latitude": "",
+  "longitude": "",
+  "businessHours": [],
+  "logoUrl": "https://www.designhavenbuild.com/images/Haven_transparent_logo.png",
+  "formspreeEndpoint": "https://formspree.io/f/xlgvyvkp",
+  "paymentProvider": "Jobber invoice and quote payments powered by Stripe",
+  "paymentPortalUrl": "",
+  "typicalPaymentSchedule": [
+    "40% up front upon project contract signing",
+    "30% after rough-in or halfway through the project",
+    "30% upon project completion"
+  ],
+  "ownerConfirmationNeeded": [
+    "Street address and ZIP if they should be public",
+    "Google Business Profile URL",
+    "Verified latitude and longitude",
+    "Business hours",
+    "License, insurance, warranty, association, certification, financing, and review details",
+    "Approved Jobber payment portal or reusable payment URL, if one should appear publicly"
+  ]
+}

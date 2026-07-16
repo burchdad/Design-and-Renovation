@@ -11,6 +11,9 @@ Allow: /areas/
 Allow: /llms.txt
 Allow: /humans.txt
 Disallow: /admin/
+Disallow: /api/
+Disallow: /visibility/
+Disallow: /projects/
 Disallow: /.git/
 
 # Sitemap location

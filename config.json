@@ -3,9 +3,9 @@
     "title": "Haven Design & Build LLC",
     "tagline": "Designing, building, and repairing residential and commercial spaces, one detail at a time.",
     "copyright_year": 2026,
-    "company_email": "info@havendesignandbuild.com",
-    "company_phone": "+1 (000) 000-0000",
-    "company_address": "Your City, State"
+    "company_email": "micah@designhavenbuild.com",
+    "company_phone": "+1 770-722-5815",
+    "company_address": "Marietta, GA"
   },
   "colors": {
     "primary": "#0B0B0B",
@@ -17,24 +17,24 @@
   "integrations": {
     "email": {
       "service": "formspree",
-      "form_id": "YOUR_FORMSPREE_ID",
-      "notes": "Replace YOUR_FORMSPREE_ID with your Formspree form ID from https://formspree.io"
+      "form_id": "xlgvyvkp",
+      "notes": "Production inquiry form endpoint: https://formspree.io/f/xlgvyvkp"
     },
     "stripe": {
-      "publishable_key": "YOUR_STRIPE_PUBLISHABLE_KEY",
-      "payment_link": "https://buy.stripe.com/YOUR_LINK",
-      "notes": "Get keys from https://dashboard.stripe.com and create a payment link"
+      "publishable_key": "",
+      "payment_link": "",
+      "notes": "Client uses Jobber invoice and quote payment links powered by Stripe. Do not publish a generic checkout link until the owner supplies the approved URL."
     },
     "analytics": {
-      "google_analytics_id": "YOUR_GA_ID",
-      "notes": "Get ID from https://analytics.google.com (starts with G-)"
+      "google_analytics_id": "",
+      "notes": "Set GA4 only after the owner supplies the production measurement ID."
     }
   },
   "social_media": {
-    "facebook": "https://facebook.com/your-page",
+    "facebook": "https://www.facebook.com/profile.php?id=61574372951184",
     "instagram": "https://www.instagram.com/designhavenbuild",
-    "linkedin": "https://linkedin.com/company/your-company",
-    "youtube": "https://youtube.com/@your-channel"
+    "linkedin": "",
+    "youtube": ""
   },
   "services": [
     {
@@ -78,7 +78,7 @@
   ],
   "deployment": {
     "host": "Suggested: Netlify, Vercel, or GoDaddy",
-    "domain": "your-domain.com",
+    "domain": "www.designhavenbuild.com",
     "ssl": true,
     "notes": "This is a static site - can be hosted anywhere. No backend needed (unless using advanced Stripe integration)."
   }
