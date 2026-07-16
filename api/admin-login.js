@@ -1,6 +1,8 @@
 const {
   createSessionToken,
   getAdminPasswordHash,
+  isLoginRateLimited,
+  recordLoginAttempt,
   readJson,
   safeEqual,
   sendJson,
@@ -14,16 +16,23 @@ module.exports = async function handler(req, res) {
   }
 
   try {
+    if (isLoginRateLimited(req)) {
+      return sendJson(res, 429, { ok: false, error: "Unable to sign in with those credentials." });
+    }
+
     const body = await readJson(req);
     const passwordHash = sha256(body.password || "");
     if (!safeEqual(passwordHash, getAdminPasswordHash())) {
-      return sendJson(res, 401, { ok: false, error: "Invalid admin password" });
+      recordLoginAttempt(req, false);
+      return sendJson(res, 401, { ok: false, error: "Unable to sign in with those credentials." });
     }
 
+    recordLoginAttempt(req, true);
     const token = createSessionToken();
     setSessionCookie(res, token);
     return sendJson(res, 200, { ok: true });
   } catch (error) {
-    return sendJson(res, 400, { ok: false, error: error.message || "Login failed" });
+    recordLoginAttempt(req, false);
+    return sendJson(res, 400, { ok: false, error: "Unable to sign in with those credentials." });
   }
 };

@@ -6,9 +6,10 @@ module.exports = async function handler(req, res) {
     return sendJson(res, 200, { ok: true, loggedOut: true });
   }
 
+  const authenticated = isAdminRequest(req);
   return sendJson(res, 200, {
     ok: true,
-    authenticated: isAdminRequest(req),
-    missionControl: missionStatus()
+    authenticated,
+    missionControl: authenticated ? missionStatus() : undefined
   });
 };

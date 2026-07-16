@@ -31,6 +31,26 @@
   "formspreeEndpoint": "https://formspree.io/f/xlgvyvkp",
   "paymentProvider": "Jobber invoice and quote payments powered by Stripe",
   "paymentPortalUrl": "",
+  "ownerVerifiedTestimonials": [
+    {
+      "author": "Marcus L.",
+      "text": "The elevation in design quality Haven brought to our home was profound. Their builders are true artisans of their craft.",
+      "sourceUrl": "",
+      "verificationNote": "Owner confirmed these are real testimonials in Codex on 2026-07-15. Public source URL not supplied."
+    },
+    {
+      "author": "Sofia K.",
+      "text": "Renovating a luxury property is daunting, but Haven's team delivered a flawless execution of our vision with professional grace.",
+      "sourceUrl": "",
+      "verificationNote": "Owner confirmed these are real testimonials in Codex on 2026-07-15. Public source URL not supplied."
+    },
+    {
+      "author": "James M.",
+      "text": "More than just your typical contractors. Walked with us in the design and build of our latest property.",
+      "sourceUrl": "",
+      "verificationNote": "Owner confirmed these are real testimonials in Codex on 2026-07-15. Public source URL not supplied."
+    }
+  ],
   "typicalPaymentSchedule": [
     "40% up front upon project contract signing",
     "30% after rough-in or halfway through the project",
@@ -41,6 +61,7 @@
     "Google Business Profile URL",
     "Verified latitude and longitude",
     "Business hours",
+    "Public source URLs for owner-confirmed testimonials if Review schema should be added later",
     "License, insurance, warranty, association, certification, financing, and review details",
     "Approved Jobber payment portal or reusable payment URL, if one should appear publicly"
   ]

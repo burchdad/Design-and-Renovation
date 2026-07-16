@@ -12,6 +12,8 @@
     element.textContent = message;
     element.className = `form-message ${type}`;
     element.style.display = "block";
+    element.setAttribute("role", "status");
+    element.setAttribute("aria-live", type === "error" ? "assertive" : "polite");
   }
 
   function setDashboardVisible(visible) {
@@ -30,8 +32,8 @@
 
     setDashboardVisible(Boolean(data.authenticated));
     setText("sessionStatus", data.authenticated ? "Active" : "Locked");
-    setText("endpointStatus", data.missionControl?.endpointConfigured ? "Configured" : "Missing env var");
-    setText("authStatus", data.missionControl?.authConfigured ? "Configured" : "Missing token");
+    setText("endpointStatus", data.authenticated ? "Available" : "Locked");
+    setText("authStatus", data.authenticated ? "Active" : "Locked");
     return data;
   }
 
@@ -50,14 +52,14 @@
         body: JSON.stringify({ password: loginForm.password.value })
       });
       const data = await response.json();
-      if (!response.ok || !data.ok) throw new Error(data.error || "Login failed");
+      if (!response.ok || !data.ok) throw new Error("Unable to sign in with those credentials.");
       loginForm.reset();
       await refreshStatus();
     } catch (error) {
-      showMessage(loginMessage, error.message || "Login failed", "error");
+      showMessage(loginMessage, "Unable to sign in with those credentials.", "error");
     } finally {
       button.disabled = false;
-      button.textContent = "Open Dashboard";
+      button.textContent = "Sign In";
     }
   });
 
@@ -75,7 +77,7 @@
       subject: ticketForm.subject.value,
       message: ticketForm.message.value,
       pageUrl: window.location.href,
-      metadata: { submittedFrom: "haven_admin_dashboard" }
+      metadata: { submittedFrom: "owner_login" }
     };
 
     try {
@@ -86,15 +88,14 @@
         body: JSON.stringify(payload)
       });
       const data = await response.json();
-      if (!data.ok) throw new Error(data.error || "Ticket failed");
-      const status = data.missionControl?.sent ? "sent to Ghost Mission Control" : "accepted but Mission Control forwarding needs env config";
-      showMessage(ticketMessageStatus, `Ticket ${data.ticketId} ${status}.`, data.missionControl?.sent ? "success" : "error");
-      if (data.missionControl?.sent) ticketForm.reset();
+      if (!response.ok || !data.ok) throw new Error("Unable to send that request right now.");
+      showMessage(ticketMessageStatus, `Request ${data.ticketId} was received.`, "success");
+      ticketForm.reset();
     } catch (error) {
-      showMessage(ticketMessageStatus, error.message || "Ticket failed", "error");
+      showMessage(ticketMessageStatus, "Unable to send that request right now.", "error");
     } finally {
       button.disabled = false;
-      button.textContent = "Send to Mission Control";
+      button.textContent = "Send Request";
     }
   });
 

@@ -3,6 +3,9 @@ const crypto = require("crypto");
 const ADMIN_PASSWORD_HASH = "fba10e7d10174a304270e48074be22b8fce8fb8beece1e35f816a9aa746e47d4";
 const SESSION_COOKIE = "haven_admin_session";
 const SESSION_TTL_SECONDS = 60 * 60 * 8;
+const LOGIN_WINDOW_MS = 15 * 60 * 1000;
+const LOGIN_MAX_ATTEMPTS = 8;
+const loginAttempts = new Map();
 
 function sha256(value = "") {
   return crypto.createHash("sha256").update(String(value)).digest("hex");
@@ -98,7 +101,39 @@ function sendJson(res, status, payload) {
   res.statusCode = status;
   res.setHeader("Content-Type", "application/json; charset=utf-8");
   res.setHeader("Cache-Control", "no-store");
+  res.setHeader("X-Robots-Tag", "noindex, nofollow, noarchive, nosnippet");
   res.end(JSON.stringify(payload));
+}
+
+function getClientKey(req) {
+  return String(req.headers["x-forwarded-for"] || req.socket?.remoteAddress || "unknown").split(",")[0].trim();
+}
+
+function isLoginRateLimited(req) {
+  const key = getClientKey(req);
+  const now = Date.now();
+  const record = loginAttempts.get(key) || { count: 0, resetAt: now + LOGIN_WINDOW_MS };
+  if (record.resetAt <= now) {
+    loginAttempts.set(key, { count: 0, resetAt: now + LOGIN_WINDOW_MS });
+    return false;
+  }
+  return record.count >= LOGIN_MAX_ATTEMPTS;
+}
+
+function recordLoginAttempt(req, succeeded) {
+  const key = getClientKey(req);
+  if (succeeded) {
+    loginAttempts.delete(key);
+    return;
+  }
+  const now = Date.now();
+  const record = loginAttempts.get(key) || { count: 0, resetAt: now + LOGIN_WINDOW_MS };
+  if (record.resetAt <= now) {
+    loginAttempts.set(key, { count: 1, resetAt: now + LOGIN_WINDOW_MS });
+    return;
+  }
+  record.count += 1;
+  loginAttempts.set(key, record);
 }
 
 function getMissionEndpoint() {
@@ -229,7 +264,9 @@ module.exports = {
   forwardToMissionControl,
   getAdminPasswordHash,
   isAdminRequest,
+  isLoginRateLimited,
   missionStatus,
+  recordLoginAttempt,
   readJson,
   sanitizeTicket,
   sendJson,

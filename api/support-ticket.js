@@ -13,9 +13,14 @@ module.exports = async function handler(req, res) {
 
   try {
     const body = await readJson(req);
+    const isAdmin = body.source === "admin";
+    if (isAdmin && !isAdminRequest(req)) {
+      return sendJson(res, 401, { ok: false, error: "Authentication required." });
+    }
+
     const ticket = sanitizeTicket({
       ...body,
-      source: body.source === "admin" && isAdminRequest(req) ? "admin" : "website_helper",
+      source: isAdmin ? "admin" : "website_helper",
       userAgent: body.userAgent || req.headers["user-agent"] || ""
     });
 

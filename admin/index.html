@@ -3,30 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="noindex, nofollow">
-  <title>Haven Admin Dashboard | Website Support</title>
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+  <title>Owner Login | Haven Design & Build LLC</title>
   <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
   <main class="admin-shell">
     <section class="admin-panel" id="loginPanel">
-      <span class="section-kicker">Private Admin</span>
-      <h1>Haven Website Dashboard</h1>
-      <p class="muted">Sign in to send website support tickets and operational notes to Ghost Mission Control.</p>
+      <span class="section-kicker">Private Access</span>
+      <h1>Owner Login</h1>
+      <p class="muted">Sign in to manage approved website support requests.</p>
       <form id="adminLoginForm" class="admin-form">
-        <label for="adminPassword">Admin Password</label>
+        <label for="adminPassword">Password</label>
         <input id="adminPassword" name="password" type="password" autocomplete="current-password" required>
-        <button class="btn btn-primary" type="submit">Open Dashboard</button>
+        <button class="btn btn-primary" type="submit">Sign In</button>
       </form>
+      <p><a class="inline-link" href="/">Return to Website</a></p>
       <p class="form-message" id="loginMessage" style="display: none;"></p>
     </section>
 
     <section class="admin-panel" id="dashboardPanel" hidden>
       <div class="admin-topbar">
         <div>
-          <span class="section-kicker">Website Operations</span>
-          <h1>Haven Admin Dashboard</h1>
-          <p class="muted">Create support tickets, test Mission Control connectivity, and route website issues for follow-up.</p>
+          <span class="section-kicker">Owner Workspace</span>
+          <h1>Website Requests</h1>
+          <p class="muted">Create approved website support requests and review the owner session status.</p>
         </div>
         <button class="btn btn-secondary" id="logoutButton" type="button">Log Out</button>
       </div>
@@ -37,11 +38,11 @@
           <strong id="sessionStatus">Checking...</strong>
         </article>
         <article>
-          <span>Mission Control Endpoint</span>
+          <span>Request Routing</span>
           <strong id="endpointStatus">Checking...</strong>
         </article>
         <article>
-          <span>Mission Control Auth</span>
+          <span>Owner Request Access</span>
           <strong id="authStatus">Checking...</strong>
         </article>
       </div>
@@ -71,18 +72,18 @@
           <label for="ticketMessage">Details</label>
           <textarea id="ticketMessage" name="message" rows="7" placeholder="Describe the issue, request, or change needed." required></textarea>
 
-          <button class="btn btn-primary" type="submit">Send to Mission Control</button>
+          <button class="btn btn-primary" type="submit">Send Request</button>
           <p class="form-message" id="ticketMessageStatus" style="display: none;"></p>
         </form>
 
         <aside class="admin-card">
-          <h2>Backend Routing</h2>
-          <p class="muted">Tickets created here and from the public website helper are posted through the Haven backend first, then forwarded to Ghost Mission Control.</p>
+          <h2>Request Guidelines</h2>
+          <p class="muted">Use this private area for approved website edits, support needs, and visibility requests.</p>
           <ul class="admin-checklist">
             <li>Admin access uses a server session cookie.</li>
-            <li>Public helper tickets do not expose Mission Control credentials.</li>
-            <li>Mission Control env vars stay in Vercel.</li>
-            <li>GEO monthly-client automation can be attached later as a separate workflow.</li>
+            <li>Describe the requested page, content, image, or issue clearly.</li>
+            <li>Do not submit sensitive customer payment information.</li>
+            <li>Use approved project details and real business facts only.</li>
           </ul>
           <button class="btn btn-secondary" id="refreshStatusButton" type="button">Refresh Status</button>
         </aside>

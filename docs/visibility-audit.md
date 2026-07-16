@@ -14,7 +14,7 @@ Repository: burchdad/Design-and-Renovation
 
 ## Critical Findings
 
-- Homepage JSON-LD duplicated the business entity and included unverified `Review` and `AggregateRating` schema. Removed review/rating schema until genuine visible review data is approved.
+- Homepage JSON-LD duplicated the business entity and included `Review` and `AggregateRating` schema without public source URLs. Owner confirmed the visible testimonials are real on 2026-07-15, so they remain visible and are recorded in `data/business-info.json`; review/rating schema remains off until source URLs or stronger provenance are supplied.
 - Public payment section displayed unfinished implementation instructions. Replaced with Jobber/Stripe invoice-link guidance and removed checkout-activation placeholder language.
 - `config.json` contained placeholder phone, address, Formspree, Stripe, analytics, social, and domain values. Replaced confirmed values and blanked unconfirmed URLs.
 
@@ -49,6 +49,7 @@ Primary canonical name should be `Haven Design & Build LLC`. The repo still cont
 - Google Business Profile URL.
 - Verified latitude/longitude.
 - Business hours.
-- License, insurance, warranty, financing, association, certification, and review details.
+- Public source URLs for owner-confirmed testimonials if Review schema should be added later.
+- License, insurance, warranty, financing, association, and certification details.
 - Approved reusable Jobber/Stripe payment URL if one should be displayed publicly.
 - Genuine project photos/details for indexed case studies.

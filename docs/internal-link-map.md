@@ -25,4 +25,4 @@
 ## Orphan / Noindex Notes
 
 - `/projects/` is intentionally noindex until real Haven project case studies are approved.
-- `/admin/`, `/api/`, and `/visibility/` are excluded from indexing.
+- Private API and utility routes are excluded from indexing and are not part of the public search-focused link graph.
