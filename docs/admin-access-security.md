@@ -67,8 +67,8 @@ Updated: 2026-07-15
 - Add a proper password reset flow only if email delivery and token expiration are implemented server-side.
 - Public source URLs for testimonials are still needed before adding Review or AggregateRating schema.
 
-## Deployment Fields To Fill After Push
+## Last Verified Production Deployment
 
-- Deployment commit SHA: `a75e04077485e316245d56e985c335b97cc4f9cb`
-- Vercel deployment URL: `https://design-and-renovation-bt8h9hqhe-burchdads-projects.vercel.app`
+- Verified deployment commit SHA at the time of production testing: `9d4fb8bdcbce71c39c10610887336abe98c17748`
+- Verified Vercel deployment URL at the time of production testing: `https://design-and-renovation-5goiy2ca3-burchdads-projects.vercel.app`
 - Production deployment status: `READY`
