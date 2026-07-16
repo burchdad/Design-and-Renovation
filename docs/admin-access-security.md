@@ -52,7 +52,13 @@ Updated: 2026-07-15
 ## Validation Results
 
 - `scripts/validate-admin-access.js` checks owner-login footer placement, nofollow, sitemap exclusion, JSON-LD exclusion, admin noindex, generic login errors, and admin write authentication checks.
-- Local unauthenticated admin-origin write request expectation: `POST /api/support-ticket` with `source: "admin"` returns `401`.
+- Local unauthenticated admin-origin write request test: `POST /api/support-ticket` with `source: "admin"` returns `401`.
+- Production unauthenticated admin-origin write request test: `POST https://www.designhavenbuild.com/api/support-ticket` with `source: "admin"` returns `401`.
+- Production failed login test: `POST https://www.designhavenbuild.com/api/admin-login` with an invalid password returns `401` and generic error handling.
+- Production homepage test: exactly one `Owner Login` footer link appears, `Admin Dashboard` does not appear, and public Mission Control wording does not appear.
+- Production admin page test: `/admin/` returns `200`, title is `Owner Login | Haven Design & Build LLC`, meta robots is `noindex, nofollow, noarchive, nosnippet`, and `X-Robots-Tag` returns the same directive.
+- Production sitemap test: `/sitemap.xml` returns `200` and does not include `/admin/`.
+- Apex redirect test: `https://designhavenbuild.com/` redirects to `https://www.designhavenbuild.com/`; `http://designhavenbuild.com/` first redirects to HTTPS apex at the Vercel edge.
 
 ## Remaining Owner Setup
 
@@ -63,6 +69,6 @@ Updated: 2026-07-15
 
 ## Deployment Fields To Fill After Push
 
-- Deployment commit SHA:
-- Vercel deployment URL:
-- Production deployment status:
+- Deployment commit SHA: `a75e04077485e316245d56e985c335b97cc4f9cb`
+- Vercel deployment URL: `https://design-and-renovation-bt8h9hqhe-burchdads-projects.vercel.app`
+- Production deployment status: `READY`
