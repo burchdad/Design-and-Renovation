@@ -26,8 +26,8 @@
       "notes": "Client uses Jobber invoice and quote payment links powered by Stripe. Do not publish a generic checkout link until the owner supplies the approved URL."
     },
     "analytics": {
-      "google_analytics_id": "",
-      "notes": "Set GA4 only after the owner supplies the production measurement ID."
+      "google_analytics_id": "G-6J486BX078",
+      "notes": "Production GA4 measurement ID installed across static HTML entrypoints."
     }
   },
   "social_media": {
