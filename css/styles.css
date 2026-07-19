@@ -28,6 +28,7 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
@@ -35,6 +36,7 @@ body {
     line-height: 1.7;
     color: var(--text-primary);
     background-color: var(--black);
+    overflow-x: hidden;
 }
 
 .hero-content h1,
@@ -254,12 +256,21 @@ body {
     padding: 0 2rem;
 }
 
+.hero-content,
+.hero-image,
+.about-section,
+.about-copy,
+.about-features {
+    min-width: 0;
+}
+
 .hero-content h1 {
     font-size: 2.8rem;
     line-height: 1.2;
     margin-bottom: 1.8rem;
     color: var(--white);
     letter-spacing: 0;
+    overflow-wrap: anywhere;
 }
 
 .hero-content p {
@@ -267,6 +278,7 @@ body {
     margin-bottom: 1.2rem;
     color: var(--text-secondary);
     line-height: 1.9;
+    overflow-wrap: break-word;
 }
 
 .hero-content .hero-proof {
@@ -575,6 +587,7 @@ body {
     max-width: 1200px;
     margin: 6rem auto;
     padding: 0 2rem;
+    min-width: 0;
 }
 
 .local-seo-panel {
@@ -582,6 +595,7 @@ body {
     border: 1px solid rgba(201, 169, 110, 0.28);
     border-radius: 10px;
     padding: 3rem;
+    min-width: 0;
 }
 
 .local-seo-panel h2 {
@@ -599,7 +613,7 @@ body {
 
 .answer-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
     gap: 1.25rem;
     margin-top: 2rem;
 }
@@ -609,16 +623,19 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 8px;
     padding: 1.5rem;
+    min-width: 0;
 }
 
 .answer-grid h3 {
     color: var(--bronze);
     margin-bottom: 0.75rem;
+    overflow-wrap: break-word;
 }
 
 .answer-grid p {
     color: var(--text-secondary);
     line-height: 1.7;
+    overflow-wrap: break-word;
 }
 
 .seo-page {
@@ -1692,22 +1709,29 @@ body {
         grid-template-columns: 1fr;
         gap: 2rem;
         margin: 3rem auto;
+        width: 100%;
+        max-width: 100%;
+        padding: 0 1.5rem;
     }
 
     .hero-content h1 {
         font-size: 2rem;
+        max-width: 100%;
     }
 
     .hero-content .hero-proof {
         padding-left: 0.85rem;
+        max-width: 100%;
     }
 
     .hero-actions {
         flex-direction: column;
+        width: 100%;
     }
 
     .hero-actions .btn {
         width: 100%;
+        max-width: 100%;
     }
 
     .quote-path {
@@ -1808,6 +1832,23 @@ body {
         padding: 2rem 1rem;
     }
 
+    .page-support-section {
+        margin: 4rem auto;
+        padding: 0 1.5rem;
+    }
+
+    .local-seo-panel {
+        padding: 2rem 1.25rem;
+    }
+
+    .local-seo-panel h2 {
+        font-size: 1.6rem;
+    }
+
+    .answer-grid {
+        grid-template-columns: 1fr;
+    }
+
     .faq-section h3 {
         font-size: 1.4rem;
     }
@@ -1854,6 +1895,10 @@ body {
 }
 
 @media (max-width: 480px) {
+    body {
+        width: 100%;
+    }
+
     .nav-container {
         padding: 1rem;
     }
@@ -1863,11 +1908,38 @@ body {
     }
 
     .hero-content h1 {
-        font-size: 1.6rem;
+        font-size: clamp(1.45rem, 9vw, 1.85rem);
+        line-height: 1.18;
+    }
+
+    .hero-content p,
+    .hero-content .hero-proof {
+        font-size: 0.96rem;
+    }
+
+    .hero-image {
+        border-radius: 8px;
     }
 
     .about-copy h2 {
         font-size: 1.55rem;
+    }
+
+    .page-support-section {
+        padding: 0 1rem;
+    }
+
+    .local-seo-panel {
+        padding: 1.5rem 1rem;
+        border-radius: 8px;
+    }
+
+    .local-seo-panel h2 {
+        font-size: 1.4rem;
+    }
+
+    .answer-grid article {
+        padding: 1.15rem;
     }
 
     .thanks-content h2 {
@@ -1907,11 +1979,19 @@ body {
     }
 
     .helper-agent {
-        right: 0.75rem;
-        bottom: 0.75rem;
+        right: 0.6rem;
+        bottom: 0.6rem;
+    }
+
+    .helper-agent-toggle {
+        min-height: 42px;
+        padding: 0.65rem 0.9rem;
+        font-size: 0.85rem;
+        box-shadow: 0 10px 22px rgba(0, 0, 0, 0.32);
     }
 
     .helper-agent-panel {
         right: -0.15rem;
+        max-width: calc(100vw - 1.2rem);
     }
 }
