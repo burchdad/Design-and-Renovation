@@ -220,9 +220,10 @@
                 <div class="hero-content">
                     <h1>Renovations & Build-Outs Crafted to Last</h1>
                     <p>Residential and commercial kitchens, bathrooms, basements, decks, outdoor spaces, and full transformations designed with precision, craftsmanship, and timeless style.</p>
+                    <p class="hero-proof">Serving Marietta, Cobb County, and greater Atlanta with clear estimates, durable finishes, and owner-led communication.</p>
                     <div class="hero-actions">
-                        <a href="#inquire" class="btn btn-primary" data-page="inquire">Request a Quote</a>
-                        <a href="#payments" class="btn btn-secondary" data-page="payments">Payment Options</a>
+                        <a href="#inquire" class="btn btn-primary" data-page="inquire" data-analytics-event="cta_quote_start" data-analytics-label="hero_primary">Start My Renovation Quote</a>
+                        <a href="tel:+17707225815" class="btn btn-secondary" data-analytics-event="cta_phone_click" data-analytics-label="hero_secondary">Call 770-722-5815</a>
                     </div>
                 </div>
                 <div class="hero-image">
@@ -436,10 +437,27 @@
         <section id="inquire" class="page" style="display: none;">
             <div class="inquire-header">
                 <h2>Get a Quote</h2>
-                <p>Ready to transform your vision into reality? Tell us about your residential or commercial project and our team will be in touch to discuss the next steps.</p>
+                <p>Tell Haven what you want to build, where the property is, and when you hope to start. The team will review fit and follow up with the clearest next step.</p>
             </div>
 
             <div class="inquire-content">
+                <div class="quote-path" aria-label="Quote request process">
+                    <div>
+                        <span>1</span>
+                        <strong>Share the scope</strong>
+                        <p>Choose the project type and describe the room, deck, basement, or commercial space.</p>
+                    </div>
+                    <div>
+                        <span>2</span>
+                        <strong>Confirm fit</strong>
+                        <p>Haven checks location, timing, and whether the project needs a site conversation.</p>
+                    </div>
+                    <div>
+                        <span>3</span>
+                        <strong>Plan the estimate</strong>
+                        <p>You get a practical next step for design, budget, payment schedule, or build planning.</p>
+                    </div>
+                </div>
                 <div class="form-container">
                     <form id="inquireForm" class="inquiry-form" action="https://formspree.io/f/xlgvyvkp" method="POST">
                         <input type="hidden" name="_subject" value="New Haven Design & Build inquiry">
@@ -496,7 +514,7 @@
                         <p class="form-note">We'll review your submission and get back to you within 24–48 hours.</p>
                     </form>
 
-                    <p class="form-note form-note-email">Direct email backup: <a href="mailto:micah@designhavenbuild.com">micah@designhavenbuild.com</a></p>
+                    <p class="form-note form-note-email">Prefer direct contact? <a href="tel:+17707225815" data-analytics-event="cta_phone_click" data-analytics-label="form_backup">Call 770-722-5815</a> or email <a href="mailto:micah@designhavenbuild.com" data-analytics-event="cta_email_click" data-analytics-label="form_backup">micah@designhavenbuild.com</a>.</p>
                     <div id="formMessage" class="form-message" style="display: none;"></div>
                 </div>
             </div>
@@ -615,7 +633,7 @@
                 <div class="faq-cta">
                     <h3>Ready to Transform Your Home?</h3>
                     <p>Have more questions? We're here to help. Reach out to our team for a free consultation.</p>
-                    <a href="#inquire" class="btn btn-primary" data-page="inquire">Request a Quote</a>
+                    <a href="#inquire" class="btn btn-primary" data-page="inquire" data-analytics-event="cta_quote_start" data-analytics-label="faq_cta">Request a Quote</a>
                 </div>
             </div>
         </section>

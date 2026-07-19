@@ -258,6 +258,11 @@ class FormHandler {
             });
 
             if (response.ok) {
+                trackAnalyticsEvent('generate_lead', {
+                    service_interest: data.service,
+                    project_type: data.projectType,
+                    zip_code: data.zip
+                });
                 this.showMessage(
                     'Success! Your inquiry has been submitted. We\'ll contact you within 24 hours.',
                     'success'
@@ -345,6 +350,14 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize payment handler
     const paymentHandler = new PaymentHandler();
 
+    document.querySelectorAll('[data-analytics-event]').forEach((element) => {
+        element.addEventListener('click', () => {
+            trackAnalyticsEvent(element.getAttribute('data-analytics-event'), {
+                event_label: element.getAttribute('data-analytics-label') || element.textContent.trim()
+            });
+        });
+    });
+
     // Set initial page from hash or home
     navigation.navigateTo(navigation.getPageFromHash());
 
@@ -385,6 +398,14 @@ function isValidPhone(phone) {
 function isValidZip(zip) {
     const zipRegex = /^\d{5}(-\d{4})?$/;
     return zipRegex.test(zip.replace(/\s/g, ''));
+}
+
+function trackAnalyticsEvent(eventName, parameters = {}) {
+    if (!eventName || typeof window.gtag !== 'function') return;
+    window.gtag('event', eventName, {
+        event_category: 'conversion_path',
+        ...parameters
+    });
 }
 
 /**
