@@ -23,7 +23,7 @@
     --text-secondary: #999999;
     --card-bg: #141414;
     --card-border: #222222;
-    --font-display: 'Playfair Display', 'Libre Baskerville', Georgia, 'Times New Roman', serif;
+    --font-display: Georgia, 'Times New Roman', serif;
 }
 
 html {
@@ -322,7 +322,6 @@ body {
     width: 100%;
     display: block;
     filter: contrast(1.07);
-    transform: scale(1.01);
 }
 
 /* About / Commercial */

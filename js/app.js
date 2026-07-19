@@ -146,13 +146,17 @@ class NavigationManager {
     }
 
     toggleMenu() {
-        this.hamburger.classList.toggle('active');
-        this.navMenu.classList.toggle('active');
+        const isOpen = this.hamburger.classList.toggle('active');
+        this.navMenu.classList.toggle('active', isOpen);
+        this.hamburger.setAttribute('aria-expanded', String(isOpen));
+        this.hamburger.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
     }
 
     closeMenu() {
         this.hamburger.classList.remove('active');
         this.navMenu.classList.remove('active');
+        this.hamburger.setAttribute('aria-expanded', 'false');
+        this.hamburger.setAttribute('aria-label', 'Open navigation menu');
     }
 
     getPageFromHash() {
@@ -364,11 +368,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // Close mobile menu on window resize
     window.addEventListener('resize', () => {
         if (window.innerWidth > 768) {
-            document.getElementById('hamburger').classList.remove('active');
-            document.getElementById('navMenu').classList.remove('active');
+            navigation.closeMenu();
         }
     });
 
+    scheduleGoogleAnalytics();
     console.info('Haven Design & Build website initialized');
 });
 
@@ -406,6 +410,33 @@ function trackAnalyticsEvent(eventName, parameters = {}) {
         event_category: 'conversion_path',
         ...parameters
     });
+}
+
+function loadGoogleAnalytics() {
+    if (window.__havenGaLoaded) return;
+    window.__havenGaLoaded = true;
+    window.gtag('js', new Date());
+    window.gtag('config', 'G-6J486BX078');
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-6J486BX078';
+    document.head.appendChild(script);
+}
+
+function scheduleGoogleAnalytics() {
+    const load = () => {
+        if ('requestIdleCallback' in window) {
+            window.requestIdleCallback(loadGoogleAnalytics, { timeout: 2500 });
+            return;
+        }
+        window.setTimeout(loadGoogleAnalytics, 1200);
+    };
+
+    if (document.readyState === 'complete') {
+        load();
+    } else {
+        window.addEventListener('load', load, { once: true });
+    }
 }
 
 /**

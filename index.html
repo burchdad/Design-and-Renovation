@@ -1,14 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6J486BX078"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-6J486BX078');
+      window.gtag = window.gtag || function(){ window.dataLayer.push(arguments); };
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -41,15 +36,12 @@
     <!-- Canonical -->
     <link rel="canonical" href="https://www.designhavenbuild.com/">
     <link rel="alternate" hreflang="en-US" href="https://www.designhavenbuild.com/">
+    <link rel="icon" href="/images/Haven_transparent_logo-120.png" type="image/png">
+    <link rel="apple-touch-icon" href="/images/Haven_transparent_logo-120.png">
     <link rel="manifest" href="/site.webmanifest">
     <link rel="author" href="/humans.txt">
-    <link rel="preload" as="image" href="images/Haven_transparent_logo.png">
-    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=600&h=400&q=80" imagesrcset="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=600&h=400&q=80 600w" imagesizes="(max-width: 900px) 100vw, 50vw">
-    
-    <!-- Fonts with preconnect -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" as="image" href="images/Haven_transparent_logo-240.webp">
+    <link rel="preload" as="image" href="images/modern_living-720.webp" imagesrcset="images/modern_living-480.webp 480w, images/modern_living-720.webp 720w" imagesizes="(max-width: 900px) 100vw, 50vw">
     
     <link rel="stylesheet" href="css/styles.css">
     
@@ -194,9 +186,9 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">
-                <img src="images/Haven_transparent_logo.png" alt="Haven Design & Build LLC logo" class="logo-image">
+                <img src="images/Haven_transparent_logo-240.webp" alt="Haven Design & Build LLC logo" class="logo-image" width="240" height="160" fetchpriority="high">
             </div>
-            <button class="hamburger" id="hamburger">
+            <button class="hamburger" id="hamburger" type="button" aria-label="Open navigation menu" aria-controls="navMenu" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -227,7 +219,7 @@
                     </div>
                 </div>
                 <div class="hero-image">
-                    <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=600&h=400&q=80" alt="Modern luxury living room interior">
+                    <img src="images/modern_living-720.webp" srcset="images/modern_living-480.webp 480w, images/modern_living-720.webp 720w" sizes="(max-width: 900px) 100vw, 50vw" alt="Modern luxury living room interior" width="720" height="480" fetchpriority="high" decoding="async">
                 </div>
             </div>
 
@@ -259,22 +251,22 @@
                 <h3>Renovation Services & Finish Inspiration</h3>
                 <div class="projects-grid">
                     <div class="project-card">
-                        <img src="images/modern_living.jpg" alt="Modern living room with warm seating and refined finishes" width="900" height="650" loading="lazy">
+                        <img src="images/modern_living-720.webp" srcset="images/modern_living-480.webp 480w, images/modern_living-720.webp 720w" sizes="(max-width: 768px) 100vw, 25vw" alt="Modern living room with warm seating and refined finishes" width="720" height="480" loading="lazy" decoding="async">
                         <h4>Whole-Room Improvements</h4>
                         <p>Layout, finish, and detail upgrades for spaces that need to feel complete and comfortable.</p>
                     </div>
                     <div class="project-card">
-                        <img src="images/Kitchen_remodel.jpg" alt="Kitchen with updated cabinetry, counters, and open workspace" width="900" height="650" loading="lazy">
+                        <img src="images/Kitchen_remodel-720.webp" srcset="images/Kitchen_remodel-480.webp 480w, images/Kitchen_remodel-720.webp 720w" sizes="(max-width: 768px) 100vw, 25vw" alt="Kitchen with updated cabinetry, counters, and open workspace" width="720" height="499" loading="lazy" decoding="async">
                         <h4>Kitchen Remodeling</h4>
                         <p>Kitchens planned around storage, workflow, lighting, surfaces, and the way the property is used.</p>
                     </div>
                     <div class="project-card">
-                        <img src="images/luxury_bathroom.png" alt="Bathroom with walk-in shower, tile, and refined fixtures" width="900" height="650" loading="lazy">
+                        <img src="images/luxury_bathroom-720.webp" srcset="images/luxury_bathroom-480.webp 480w, images/luxury_bathroom-720.webp 720w" sizes="(max-width: 768px) 100vw, 25vw" alt="Bathroom with walk-in shower, tile, and refined fixtures" width="720" height="466" loading="lazy" decoding="async">
                         <h4>Bathroom Remodeling</h4>
                         <p>Bath upgrades that balance tile, fixtures, storage, lighting, and durable wet-area details.</p>
                     </div>
                     <div class="project-card">
-                        <img src="images/outdoor_living.jpg" alt="Outdoor seating area suited for deck and patio living" width="900" height="650" loading="lazy">
+                        <img src="images/outdoor_living-720.webp" srcset="images/outdoor_living-480.webp 480w, images/outdoor_living-720.webp 720w" sizes="(max-width: 768px) 100vw, 25vw" alt="Outdoor seating area suited for deck and patio living" width="720" height="514" loading="lazy" decoding="async">
                         <h4>Decks & Outdoor Living</h4>
                         <p>Decks, patios, and extended living spaces that blend indoor comfort with outdoor beauty.</p>
                     </div>
@@ -318,7 +310,7 @@
                 <!-- Kitchens -->
                 <div class="service-section">
                     <div class="service-image">
-                        <img src="images/Kitchen_remodel.jpg" alt="Modern Kitchen Remodel">
+                        <img src="images/Kitchen_remodel-720.webp" alt="Modern Kitchen Remodel" width="720" height="499" loading="lazy" decoding="async">
                     </div>
                     <div class="service-content">
                         <h3>Kitchen Remodel</h3>
@@ -339,7 +331,7 @@
                 <!-- Bathrooms -->
                 <div class="service-section service-section-reverse">
                     <div class="service-image">
-                        <img src="images/luxury_bathroom.png" alt="Luxury Bathroom Renovation">
+                        <img src="images/luxury_bathroom-720.webp" alt="Luxury Bathroom Renovation" width="720" height="466" loading="lazy" decoding="async">
                     </div>
                     <div class="service-content">
                         <h3>Bathroom Renovation</h3>
@@ -360,7 +352,7 @@
                 <!-- Basement Finishing -->
                 <div class="service-section">
                     <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1765959617888-30837a158667?auto=format&fit=crop&w=900&h=650&q=80" alt="Renovated basement lounge with fireplace and built-in shelving">
+                        <img src="images/basement_finishing-720.webp" alt="Renovated basement lounge with fireplace and built-in shelving" width="720" height="481" loading="lazy" decoding="async">
                     </div>
                     <div class="service-content">
                         <h3>Basement Finishing & Garage Spaces</h3>
@@ -381,7 +373,7 @@
                 <!-- Outdoor Living -->
                 <div class="service-section service-section-reverse">
                     <div class="service-image">
-                        <img src="images/outdoor_living.jpg" alt="Outdoor Patio and Deck Living Space">
+                        <img src="images/outdoor_living-720.webp" alt="Outdoor Patio and Deck Living Space" width="720" height="514" loading="lazy" decoding="async">
                     </div>
                     <div class="service-content">
                         <h3>Outdoor Living Space</h3>
@@ -710,7 +702,7 @@
             <div class="connect-content">
                 <div class="qr-card">
                     <a href="https://www.designhavenbuild.com/#connect" target="_blank" rel="noopener noreferrer">
-                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&margin=12&data=https%3A%2F%2Fwww.designhavenbuild.com%2F%23connect" alt="QR code linked to Design Haven Build website and social links">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&margin=12&data=https%3A%2F%2Fwww.designhavenbuild.com%2F%23connect" alt="QR code linked to Design Haven Build website and social links" width="220" height="220" loading="lazy" decoding="async">
                     </a>
                     <h3>Website & Social QR Code</h3>
                     <p>Scan to open the website, inquiry form, payment tab, and social links.</p>
@@ -743,7 +735,7 @@
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-section">
-                <img src="images/Haven_transparent_logo.png" alt="Haven Design & Build LLC logo" class="footer-logo-image">
+                <img src="images/Haven_transparent_logo-240.webp" alt="Haven Design & Build LLC logo" class="footer-logo-image" width="240" height="160" loading="lazy" decoding="async">
                 <h4>HAVEN Design & Build LLC</h4>
                 <p>Transforming homes through exceptional design and craftsmanship.</p>
             </div>
@@ -784,7 +776,7 @@
         </div>
     </footer>
 
-    <script src="js/app.js?v=20260708"></script>
-    <script src="js/website-helper-agent.js?v=20260708"></script>
+    <script src="js/app.js?v=20260719-performance" defer></script>
+    <script src="js/website-helper-agent.js?v=20260719-performance" defer></script>
 </body>
 </html>
