@@ -68,8 +68,8 @@
       @media (max-width:768px){.nav-menu{background:var(--black);border-top:1px solid var(--card-border);display:none;flex-direction:column;gap:0;left:0;padding:1rem;position:absolute;right:0;top:100%}.nav-menu.active{display:flex}.hamburger{display:flex}.hero{grid-template-columns:1fr;gap:2rem;margin:3rem auto;max-width:100%;padding:0 1.5rem;width:100%}.hero-content h1{font-size:2rem}.hero-content p{font-size:1rem}.hero-actions{flex-direction:column;width:100%}.hero-actions .btn{max-width:100%;width:100%}}
       @media (max-width:480px){.nav-container{padding:1rem}.logo-image{width:140px}.hero-content h1{font-size:clamp(1.45rem,9vw,1.85rem);line-height:1.18}.hero-content p,.hero-proof{font-size:.96rem}.hero-image{border-radius:8px}}
     </style>
-    <link rel="preload" href="css/styles.min.css?v=20260719-psi2" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="css/styles.min.css?v=20260719-psi2"></noscript>
+    <link rel="preload" href="css/styles.min.css?v=20260719-geo1" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="css/styles.min.css?v=20260719-geo1"></noscript>
     
     <title>Haven Design & Build LLC | Marietta GA Renovation Contractor</title>
 
@@ -215,9 +215,9 @@
                 <img src="images/Haven_transparent_logo-240.webp" alt="Haven Design & Build LLC logo" class="logo-image" width="240" height="160" fetchpriority="high">
             </div>
             <button class="hamburger" id="hamburger" type="button" aria-label="Open navigation menu" aria-controls="navMenu" aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
             </button>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#home" class="nav-link" data-page="home">Home</a></li>
@@ -236,13 +236,14 @@
         <section id="home" class="page">
             <div class="hero">
                 <div class="hero-content">
-                    <h1>Renovations & Build-Outs Crafted to Last</h1>
-                    <p>Residential and commercial kitchens, bathrooms, basements, decks, outdoor spaces, and full transformations designed with precision, craftsmanship, and timeless style.</p>
+                    <h1>Start a Marietta Renovation With Clear Next Steps</h1>
+                    <p>Residential and commercial kitchens, bathrooms, basements, decks, outdoor spaces, and full transformations planned with precision, craftsmanship, and durable finish quality.</p>
                     <p class="hero-proof">Serving Marietta, Cobb County, and greater Atlanta with clear estimates, durable finishes, and owner-led communication.</p>
                     <div class="hero-actions">
-                        <a href="#inquire" class="btn btn-primary" data-page="inquire" data-analytics-event="cta_quote_start" data-analytics-label="hero_primary">Start My Renovation Quote</a>
+                        <a href="#inquire" class="btn btn-primary" data-page="inquire" data-analytics-event="cta_quote_start" data-analytics-label="hero_primary_fit_review">Get My Project Fit Review</a>
                         <a href="tel:+17707225815" class="btn btn-secondary" data-analytics-event="cta_phone_click" data-analytics-label="hero_secondary">Call 770-722-5815</a>
                     </div>
+                    <p class="hero-action-note">Free project-fit review for Marietta, Cobb County, and greater Atlanta renovation requests.</p>
                 </div>
                 <div class="hero-image">
                     <img src="images/modern_living-720.webp" srcset="images/modern_living-480.webp 480w, images/modern_living-720.webp 720w" sizes="(max-width: 900px) calc(100vw - 3rem), 50vw" alt="Modern luxury living room interior" width="720" height="480" fetchpriority="high" decoding="async">
@@ -480,6 +481,7 @@
                     <form id="inquireForm" class="inquiry-form" action="https://formspree.io/f/xlgvyvkp" method="POST">
                         <input type="hidden" name="_subject" value="New Haven Design & Build inquiry">
                         <input type="hidden" name="_next" value="https://www.designhavenbuild.com/#thanks">
+                        <input type="hidden" name="conversion_path" value="homepage_project_fit_review">
                         <div class="form-group">
                             <label for="name">Full Name *</label>
                             <input type="text" id="name" name="name" required>
@@ -528,7 +530,7 @@
                             </select>
                         </div>
 
-                        <button type="submit" class="btn btn-primary">Submit Inquiry</button>
+                        <button type="submit" class="btn btn-primary" data-analytics-event="quote_submit_click" data-analytics-label="inquiry_form_submit">Submit Project Details</button>
                         <p class="form-note">We'll review your submission and get back to you within 24–48 hours.</p>
                     </form>
 
@@ -757,6 +759,11 @@
         </section>
     </main>
 
+    <div class="sticky-quote-bar" aria-label="Quick quote actions">
+        <a href="#inquire" data-page="inquire" data-analytics-event="cta_quote_start" data-analytics-label="mobile_sticky_quote">Project Fit Review</a>
+        <a href="tel:+17707225815" data-analytics-event="cta_phone_click" data-analytics-label="mobile_sticky_phone">Call Now</a>
+    </div>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
@@ -802,7 +809,7 @@
         </div>
     </footer>
 
-    <script src="js/app.js?v=20260719-performance" defer></script>
-    <script src="js/website-helper-agent.js?v=20260719-performance" defer></script>
+    <script src="js/app.js?v=20260719-geo1" defer></script>
+    <script src="js/website-helper-agent.js?v=20260719-geo1" defer></script>
 </body>
 </html>

@@ -301,6 +301,13 @@ body {
     margin-top: 0;
 }
 
+.hero-action-note {
+    margin-top: 0.85rem;
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+    line-height: 1.6;
+}
+
 .hero-image {
     position: relative;
     border-radius: 10px;
@@ -1455,6 +1462,10 @@ body {
     color: var(--bronze);
 }
 
+.sticky-quote-bar {
+    display: none;
+}
+
 /* ========================================
    WEBSITE HELPER AGENT
    ======================================== */
@@ -1996,5 +2007,61 @@ body {
     .helper-agent-panel {
         right: -0.15rem;
         max-width: calc(100vw - 1.2rem);
+    }
+
+    .sticky-quote-bar {
+        position: fixed;
+        left: 0.75rem;
+        right: 0.75rem;
+        bottom: 0.75rem;
+        z-index: 1150;
+        display: grid;
+        grid-template-columns: 1fr 0.78fr;
+        gap: 0.5rem;
+        padding: 0.55rem;
+        background: rgba(11, 11, 11, 0.94);
+        border: 1px solid rgba(196, 154, 58, 0.34);
+        border-radius: 8px;
+        box-shadow: 0 16px 36px rgba(0, 0, 0, 0.42);
+        backdrop-filter: blur(10px);
+    }
+
+    .sticky-quote-bar a {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 6px;
+        color: var(--black);
+        background: var(--bronze);
+        font-size: 0.9rem;
+        font-weight: 800;
+        line-height: 1.2;
+        text-align: center;
+        text-decoration: none;
+    }
+
+    .sticky-quote-bar a:last-child {
+        color: var(--bronze);
+        background: transparent;
+        border: 1px solid var(--bronze);
+    }
+
+    .helper-agent {
+        bottom: 4.65rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
     }
 }
