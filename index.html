@@ -40,10 +40,36 @@
     <link rel="apple-touch-icon" href="/images/Haven_transparent_logo-120.png">
     <link rel="manifest" href="/site.webmanifest">
     <link rel="author" href="/humans.txt">
-    <link rel="preload" as="image" href="images/Haven_transparent_logo-240.webp">
-    <link rel="preload" as="image" href="images/modern_living-720.webp" imagesrcset="images/modern_living-480.webp 480w, images/modern_living-720.webp 720w" imagesizes="(max-width: 900px) 100vw, 50vw">
-    
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preload" as="image" href="images/Haven_transparent_logo-240.webp" fetchpriority="high">
+    <link rel="preload" as="image" href="images/modern_living-720.webp" imagesrcset="images/modern_living-480.webp 480w, images/modern_living-720.webp 720w" imagesizes="(max-width: 900px) calc(100vw - 3rem), 50vw" fetchpriority="high">
+    <style>
+      *{box-sizing:border-box;margin:0;padding:0}
+      :root{--black:#0b0b0b;--bronze:#c49a3a;--bronze-light:#d4aa4a;--white:#f5f5f5;--text-primary:#e8e8e8;--text-secondary:#999;--card-border:#222;--font-display:Georgia,'Times New Roman',serif}
+      html,body{overflow-x:hidden}
+      body{background:var(--black);color:var(--text-primary);font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;line-height:1.7}
+      .navbar{background:var(--black);border-bottom:1px solid var(--card-border);box-shadow:0 2px 20px rgba(0,0,0,.5);position:sticky;top:0;z-index:1000}
+      .nav-container{align-items:center;display:flex;justify-content:space-between;margin:0 auto;max-width:1200px;padding:1.25rem 2rem}
+      .logo-image{display:block;height:auto;width:180px}
+      .nav-menu{display:flex;gap:1.8rem;list-style:none}
+      .nav-link{color:var(--text-primary);font-size:1rem;font-weight:500;letter-spacing:.5px;text-decoration:none}
+      .hamburger{background:none;border:0;cursor:pointer;display:none;flex-direction:column;gap:.35rem}
+      .hamburger span{background:var(--bronze);height:3px;width:25px}
+      .hero{align-items:center;display:grid;gap:4rem;grid-template-columns:1fr 1fr;margin:5rem auto;max-width:1200px;padding:0 2rem}
+      .hero-content,.hero-image{min-width:0}
+      .hero-content h1{color:var(--white);font-family:var(--font-display);font-size:2.8rem;font-weight:600;letter-spacing:0;line-height:1.2;margin-bottom:1.8rem;overflow-wrap:anywhere}
+      .hero-content p{color:var(--text-secondary);font-size:1.1rem;line-height:1.9;margin-bottom:1.2rem}
+      .hero-proof{border-left:3px solid var(--bronze);color:var(--text-primary);font-size:1rem;line-height:1.7;max-width:620px;padding-left:1rem}
+      .hero-actions{display:flex;flex-wrap:wrap;gap:1rem;margin-top:2.5rem}
+      .btn{border:2px solid transparent;border-radius:6px;cursor:pointer;display:inline-block;font-size:1rem;font-weight:600;letter-spacing:.5px;padding:.85rem 2.2rem;text-align:center;text-decoration:none}
+      .btn-primary{background:var(--bronze);color:var(--black)}
+      .btn-secondary{background:transparent;border-color:var(--bronze);color:var(--bronze)}
+      .hero-image{border-radius:10px;box-shadow:0 18px 44px rgba(0,0,0,.45);overflow:hidden;position:relative}
+      .hero-image img{aspect-ratio:3/2;display:block;filter:contrast(1.07);height:auto;width:100%}
+      @media (max-width:768px){.nav-menu{background:var(--black);border-top:1px solid var(--card-border);display:none;flex-direction:column;gap:0;left:0;padding:1rem;position:absolute;right:0;top:100%}.nav-menu.active{display:flex}.hamburger{display:flex}.hero{grid-template-columns:1fr;gap:2rem;margin:3rem auto;max-width:100%;padding:0 1.5rem;width:100%}.hero-content h1{font-size:2rem}.hero-content p{font-size:1rem}.hero-actions{flex-direction:column;width:100%}.hero-actions .btn{max-width:100%;width:100%}}
+      @media (max-width:480px){.nav-container{padding:1rem}.logo-image{width:140px}.hero-content h1{font-size:clamp(1.45rem,9vw,1.85rem);line-height:1.18}.hero-content p,.hero-proof{font-size:.96rem}.hero-image{border-radius:8px}}
+    </style>
+    <link rel="preload" href="css/styles.min.css?v=20260719-psi2" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="css/styles.min.css?v=20260719-psi2"></noscript>
     
     <title>Haven Design & Build LLC | Marietta GA Renovation Contractor</title>
 
@@ -219,7 +245,7 @@
                     </div>
                 </div>
                 <div class="hero-image">
-                    <img src="images/modern_living-720.webp" srcset="images/modern_living-480.webp 480w, images/modern_living-720.webp 720w" sizes="(max-width: 900px) 100vw, 50vw" alt="Modern luxury living room interior" width="720" height="480" fetchpriority="high" decoding="async">
+                    <img src="images/modern_living-720.webp" srcset="images/modern_living-480.webp 480w, images/modern_living-720.webp 720w" sizes="(max-width: 900px) calc(100vw - 3rem), 50vw" alt="Modern luxury living room interior" width="720" height="480" fetchpriority="high" decoding="async">
                 </div>
             </div>
 

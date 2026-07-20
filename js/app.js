@@ -424,13 +424,13 @@ function loadGoogleAnalytics() {
 }
 
 function scheduleGoogleAnalytics() {
-    const load = () => {
-        if ('requestIdleCallback' in window) {
-            window.requestIdleCallback(loadGoogleAnalytics, { timeout: 2500 });
-            return;
-        }
-        window.setTimeout(loadGoogleAnalytics, 1200);
-    };
+    const load = () => window.setTimeout(loadGoogleAnalytics, 12000);
+    const loadOnInteraction = () => loadGoogleAnalytics();
+    const interactionOptions = { once: true, passive: true };
+
+    ['pointerdown', 'keydown', 'scroll', 'touchstart'].forEach((eventName) => {
+        window.addEventListener(eventName, loadOnInteraction, interactionOptions);
+    });
 
     if (document.readyState === 'complete') {
         load();
