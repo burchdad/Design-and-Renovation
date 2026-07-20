@@ -2,7 +2,7 @@
   const root = document.createElement("div");
   root.className = "helper-agent";
   root.innerHTML = `
-    <button class="helper-agent-toggle" type="button" aria-expanded="false" aria-controls="helperAgentPanel">
+    <button class="helper-agent-toggle" type="button" aria-label="Open Haven website helper" aria-expanded="false" aria-controls="helperAgentPanel">
       Website Help
     </button>
     <section class="helper-agent-panel" id="helperAgentPanel" hidden>
@@ -16,19 +16,19 @@
       <div class="helper-agent-body">
         <p class="helper-agent-reply">I can help route project questions, form issues, payment questions, or website support requests to the right place.</p>
         <form class="helper-agent-form">
-          <label>Name</label>
-          <input name="name" type="text" autocomplete="name" placeholder="Your name">
-          <label>Email</label>
-          <input name="email" type="email" autocomplete="email" placeholder="you@example.com">
-          <label>What do you need help with?</label>
-          <select name="category">
+          <label for="helperName">Name</label>
+          <input id="helperName" name="name" type="text" autocomplete="name" placeholder="Your name">
+          <label for="helperEmail">Email</label>
+          <input id="helperEmail" name="email" type="email" autocomplete="email" placeholder="you@example.com">
+          <label for="helperCategory">What do you need help with?</label>
+          <select id="helperCategory" name="category">
             <option>Project Question</option>
             <option>Inquiry/Form Issue</option>
             <option>Payment Question</option>
             <option>Website Support</option>
           </select>
-          <label>Message</label>
-          <textarea name="message" rows="4" placeholder="Tell us what you need..." required></textarea>
+          <label for="helperMessage">Message</label>
+          <textarea id="helperMessage" name="message" rows="4" placeholder="Tell us what you need..." required></textarea>
           <button class="btn btn-primary" type="submit">Send Request</button>
           <p class="helper-agent-status" aria-live="polite"></p>
         </form>

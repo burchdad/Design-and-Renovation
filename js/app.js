@@ -202,13 +202,24 @@ class FormHandler {
     constructor() {
         this.form = document.getElementById('inquireForm');
         this.messageDiv = document.getElementById('formMessage');
+        this.started = false;
         this.init();
     }
 
     init() {
         if (this.form) {
             this.form.addEventListener('submit', (e) => this.handleSubmit(e));
+            this.form.addEventListener('focusin', () => this.trackStarted(), { once: true });
         }
+    }
+
+    trackStarted() {
+        if (this.started) return;
+        this.started = true;
+        trackAnalyticsEvent('quote_form_started', {
+            event_label: 'inquiry_form',
+            page_location: window.location.href
+        });
     }
 
     async handleSubmit(e) {
@@ -227,17 +238,32 @@ class FormHandler {
             timestamp: new Date().toLocaleString()
         };
 
+        trackAnalyticsEvent('quote_form_attempt', {
+            service_interest: data.service,
+            project_type: data.projectType,
+            zip_code: data.zip
+        });
+
         if (!isValidEmail(data.email)) {
+            trackAnalyticsEvent('quote_form_error', {
+                event_label: 'invalid_email'
+            });
             this.showMessage('Please enter a valid email address.', 'error');
             return;
         }
 
         if (!isValidPhone(data.phone)) {
+            trackAnalyticsEvent('quote_form_error', {
+                event_label: 'invalid_phone'
+            });
             this.showMessage('Please enter a valid phone number.', 'error');
             return;
         }
 
         if (!isValidZip(data.zip)) {
+            trackAnalyticsEvent('quote_form_error', {
+                event_label: 'invalid_zip'
+            });
             this.showMessage('Please enter a valid ZIP code.', 'error');
             return;
         }
@@ -265,7 +291,8 @@ class FormHandler {
                 trackAnalyticsEvent('generate_lead', {
                     service_interest: data.service,
                     project_type: data.projectType,
-                    zip_code: data.zip
+                    zip_code: data.zip,
+                    conversion_path: 'homepage_project_fit_review'
                 });
                 this.showMessage(
                     'Success! Your inquiry has been submitted. We\'ll contact you within 24 hours.',
@@ -276,6 +303,9 @@ class FormHandler {
                 submitBtn.textContent = 'Submit Inquiry';
                 window.location.hash = 'thanks';
             } else {
+                trackAnalyticsEvent('quote_form_error', {
+                    event_label: 'formspree_response_error'
+                });
                 this.showMessage(
                     'There was an issue submitting your inquiry. Please email micah@designhavenbuild.com directly.',
                     'error'
@@ -285,6 +315,9 @@ class FormHandler {
             }
         } catch (error) {
             console.error('Form submission error:', error);
+            trackAnalyticsEvent('quote_form_error', {
+                event_label: 'network_error'
+            });
             this.showMessage(
                 'Connection error. Please email micah@designhavenbuild.com directly.',
                 'error'
@@ -424,7 +457,14 @@ function loadGoogleAnalytics() {
 }
 
 function scheduleGoogleAnalytics() {
-    const load = () => window.setTimeout(loadGoogleAnalytics, 12000);
+    const load = () => {
+        const idleLoad = () => window.setTimeout(loadGoogleAnalytics, 3000);
+        if ('requestIdleCallback' in window) {
+            window.requestIdleCallback(idleLoad, { timeout: 4500 });
+            return;
+        }
+        idleLoad();
+    };
     const loadOnInteraction = () => loadGoogleAnalytics();
     const interactionOptions = { once: true, passive: true };
 
