@@ -1,6 +1,6 @@
 # Haven Design & Build Visibility Audit
 
-Audit date: 2026-07-15  
+Audit date: 2026-07-20
 Site: https://www.designhavenbuild.com/  
 Repository: burchdad/Design-and-Renovation
 
@@ -11,6 +11,16 @@ Repository: burchdad/Design-and-Renovation
 - Deployment: Vercel static hosting/API functions; `vercel.json` now defines preferred host redirect and noindex headers for private/utility routes.
 - Forms: Formspree endpoint `https://formspree.io/f/xlgvyvkp`.
 - Admin/support: `/admin/` is protected by API-backed session login and forwards support tickets to Mission Control through environment variables.
+- Search Console snapshot shared by owner on 2026-07-20: last 7 days showed 5 clicks, 484 impressions, 1% CTR, and 43.9 average position.
+- Search Console snapshot shared by owner on 2026-07-31: 6-month view showed 63 clicks, 2.28K impressions, 2.8% CTR, and 28.4 average position. The homepage carried nearly all clicks, so the immediate GEO focus is moving visibility into supporting commercial pages.
+
+## July 20 GEO Boost
+
+- Updated homepage title, description, JSON-LD, answer hub, FAQ, and footer links to reinforce the Marietta home renovation company query family.
+- Strengthened `/home-renovation-companies-marietta-ga/` with plural-query title/H1 alignment, direct-answer copy, dateModified, keywords, expanded FAQ schema, and OfferCatalog service markup.
+- Linked the target page from the Marietta area page and resources hub so it has stronger internal authority.
+- Updated `llms.txt` with a monthly GEO priority and refreshed sitemap lastmod dates.
+- Next manual action: after deployment, inspect `https://www.designhavenbuild.com/home-renovation-companies-marietta-ga/` in Google Search Console, request indexing, and track impressions/CTR for `home renovation companies in Marietta GA`, `home renovation company Marietta`, and `Marietta remodeling company`.
 
 ## Critical Findings
 

@@ -11,14 +11,17 @@ https://www.designhavenbuild.com/sitemap.xml
 Use URL Inspection in Google Search Console for:
 
 - https://www.designhavenbuild.com/
+- https://www.designhavenbuild.com/home-renovation-companies-marietta-ga/
+- https://www.designhavenbuild.com/areas/
+- https://www.designhavenbuild.com/areas/marietta-ga/
 - https://www.designhavenbuild.com/services/kitchen-remodeling-marietta-ga/
 - https://www.designhavenbuild.com/services/bathroom-remodeling-marietta-ga/
 - https://www.designhavenbuild.com/services/basement-finishing-marietta-ga/
 - https://www.designhavenbuild.com/services/deck-builder-marietta-ga/
 - https://www.designhavenbuild.com/services/commercial-renovation-marietta-ga/
-- https://www.designhavenbuild.com/areas/marietta-ga/
 - https://www.designhavenbuild.com/areas/cobb-county-ga/
 - https://www.designhavenbuild.com/areas/atlanta-ga/
+- https://www.designhavenbuild.com/resources/
 - https://www.designhavenbuild.com/llms.txt
 
 ## First Queries to Monitor
@@ -26,6 +29,10 @@ Use URL Inspection in Google Search Console for:
 - haven design build
 - haven design and build
 - haven design build marietta
+- home renovation companies in marietta ga
+- home renovation company marietta ga
+- marietta home renovation company
+- marietta remodeling company
 - marietta renovation contractor
 - kitchen remodeling marietta ga
 - bathroom remodeling marietta ga
@@ -37,6 +44,7 @@ Use URL Inspection in Google Search Console for:
 ## Weekly Review
 
 - Check pages indexed.
+- Check whether the target page `/home-renovation-companies-marietta-ga/` earns impressions. If it does not, submit it again through URL Inspection and add GBP/social posts linking to it.
 - Check impressions but low clicks, then improve titles and descriptions.
 - Check queries where average position is 8-20, then strengthen internal links and GBP posts for those terms.
 - Check Google Business Profile calls, website clicks, direction requests, and profile views.
