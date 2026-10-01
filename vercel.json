@@ -72,15 +72,6 @@
           "value": "noindex, nofollow, noarchive, nosnippet"
         }
       ]
-    },
-    {
-      "source": "/projects/(.*)",
-      "headers": [
-        {
-          "key": "X-Robots-Tag",
-          "value": "noindex, follow, noarchive, nosnippet"
-        }
-      ]
     }
   ]
 }

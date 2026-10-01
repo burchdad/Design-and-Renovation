@@ -8,6 +8,7 @@ Allow: /js/
 Allow: /images/
 Allow: /services/
 Allow: /areas/
+Allow: /resources/
 Allow: /llms.txt
 Allow: /humans.txt
 Disallow: /admin/

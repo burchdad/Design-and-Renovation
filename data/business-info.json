@@ -15,6 +15,8 @@
   "serviceAreas": [
     "Marietta, GA",
     "Cobb County, GA",
+    "Cherokee County, GA",
+    "North Atlanta, GA",
     "Greater Atlanta, GA"
   ],
   "socialProfiles": {
@@ -31,6 +33,33 @@
   "formspreeEndpoint": "https://formspree.io/f/xlgvyvkp",
   "paymentProvider": "Jobber invoice and quote payments powered by Stripe",
   "paymentPortalUrl": "",
+  "growthPackage": {
+    "name": "Ghost AI Solutions Founders Package",
+    "status": "active",
+    "confirmedDate": "2026-08-01",
+    "includedServices": [
+      "Google Business Profile updates",
+      "Google Analytics monitoring",
+      "SEO, AEO, and GEO",
+      "Competitor analysis and build-up",
+      "Website updates and maintenance",
+      "Weekly growth call",
+      "Ghost Partner Network",
+      "4 social posts monthly"
+    ],
+    "primaryGrowthGoal": "Increase qualified renovation inquiries for North Atlanta, Marietta, Cobb County, Cherokee County, and greater Atlanta residential and light commercial projects.",
+    "priorityQueries": [
+      "home renovation companies in Marietta GA",
+      "Marietta renovation contractor",
+      "North Atlanta renovation contractor",
+      "kitchen remodeling Marietta GA",
+      "bathroom remodeling Marietta GA",
+      "Cherokee County renovation contractor",
+      "basement finishing Marietta GA",
+      "deck builder Marietta GA",
+      "commercial renovation Marietta GA"
+    ]
+  },
   "ownerVerifiedTestimonials": [
     {
       "author": "Marcus L.",

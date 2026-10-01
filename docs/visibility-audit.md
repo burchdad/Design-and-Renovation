@@ -11,6 +11,7 @@ Repository: burchdad/Design-and-Renovation
 - Deployment: Vercel static hosting/API functions; `vercel.json` now defines preferred host redirect and noindex headers for private/utility routes.
 - Forms: Formspree endpoint `https://formspree.io/f/xlgvyvkp`.
 - Admin/support: `/admin/` is protected by API-backed session login and forwards support tickets to Mission Control through environment variables.
+- Growth package: Haven Design & Build is active on the Ghost AI Solutions Founders Package as of 2026-08-01, including GBP updates, Google Analytics monitoring, SEO/AEO/GEO, competitor analysis, website maintenance, weekly growth call support, Ghost Partner Network, and 4 social posts monthly.
 - Search Console snapshot shared by owner on 2026-07-20: last 7 days showed 5 clicks, 484 impressions, 1% CTR, and 43.9 average position.
 - Search Console snapshot shared by owner on 2026-07-31: 6-month view showed 63 clicks, 2.28K impressions, 2.8% CTR, and 28.4 average position. The homepage carried nearly all clicks, so the immediate GEO focus is moving visibility into supporting commercial pages.
 
