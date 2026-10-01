@@ -68,8 +68,8 @@
       @media (max-width:768px){.nav-menu{background:var(--black);border-top:1px solid var(--card-border);display:none;flex-direction:column;gap:0;left:0;padding:1rem;position:absolute;right:0;top:100%}.nav-menu.active{display:flex}.hamburger{display:flex}.hero{grid-template-columns:1fr;gap:2rem;margin:3rem auto;max-width:100%;padding:0 1.5rem;width:100%}.hero-content h1{font-size:2rem}.hero-content p{font-size:1rem}.hero-actions{flex-direction:column;width:100%}.hero-actions .btn{max-width:100%;width:100%}}
       @media (max-width:480px){.nav-container{padding:1rem}.logo-image{width:140px}.hero-content h1{font-size:clamp(1.45rem,9vw,1.85rem);line-height:1.18}.hero-content p,.hero-proof{font-size:.96rem}.hero-image{border-radius:8px}}
     </style>
-    <link rel="preload" href="css/styles.min.css?v=20260719-geo1" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="css/styles.min.css?v=20260719-geo1"></noscript>
+    <link rel="stylesheet" href="css/styles.min.css?v=20260719-geo1">
+    <link rel="stylesheet" href="css/homepage-preview.css?v=20261001">
     
     <title>North Atlanta Renovation Contractor | Haven Design & Build</title>
 
@@ -253,97 +253,50 @@
     <!-- Main Content -->
     <main class="main-content">
         <!-- Home Page -->
-        <section id="home" class="page">
-            <div class="hero">
-                <div class="hero-content">
-                    <h1>North Atlanta Renovations With Clear Next Steps</h1>
-                    <p>Residential and commercial kitchens, bathrooms, basements, decks, outdoor spaces, and full transformations planned with precision, craftsmanship, and durable finish quality.</p>
-                    <p class="hero-proof">Serving North Atlanta and surrounding areas, with emphasis on Marietta, Cobb County, and Cherokee County.</p>
-                    <div class="hero-actions">
-                        <a href="#inquire" class="btn btn-primary" data-page="inquire" data-analytics-event="cta_quote_start" data-analytics-label="hero_primary_fit_review">Get My Project Fit Review</a>
-                        <a href="tel:+17707225815" class="btn btn-secondary" data-analytics-event="cta_phone_click" data-analytics-label="hero_secondary">Call 770-722-5815</a>
+        <section id="home" class="page homepage-preview">
+            <section class="premium-hero">
+                <img class="premium-hero-image" src="images/bridgemill-garage-addition-01.webp" alt="Completed Haven Design and Build garage addition at dusk" width="1200" height="900" fetchpriority="high">
+                <div class="premium-hero-overlay"></div>
+                <div class="premium-hero-copy">
+                    <span class="eyebrow">North Atlanta Design + Build</span>
+                    <h1>Crafted spaces.<br>Built to last.</h1>
+                    <p>Residential, commercial, and outdoor-living projects shaped by thoughtful design, durable materials, and exacting finish work.</p>
+                    <div class="premium-actions">
+                        <a href="#inquire" class="premium-button premium-button-gold" data-page="inquire">Start Your Project</a>
+                        <a href="#featured-work" class="premium-button premium-button-quiet">View Recent Work</a>
                     </div>
-                    <p class="hero-action-note">Free project-fit review for North Atlanta, Cobb County, Cherokee County, and greater Atlanta renovation requests. Comparing options? Review the <a class="inline-link" href="/home-renovation-companies-marietta-ga/">Marietta home renovation company guide</a>.</p>
                 </div>
-                <div class="hero-image">
-                    <img src="images/modern_living-720.webp" srcset="images/modern_living-480.webp 480w, images/modern_living-720.webp 720w" sizes="(max-width: 900px) calc(100vw - 3rem), 50vw" alt="Modern luxury living room interior" width="720" height="480" fetchpriority="high" decoding="async">
-                </div>
-            </div>
+                <div class="premium-scroll-note">Scroll to explore <span>↓</span></div>
+            </section>
 
-            <!-- About / Commercial -->
-            <section class="about-section">
-                <div class="about-copy">
-                    <span class="section-kicker">Residential & Commercial</span>
-                    <h2>Built for homes, shops, offices, and everything in between.</h2>
-                    <p>Haven Design & Build brings the same detail-driven approach to residential remodels and commercial projects. From refreshing a client-facing space to finishing a basement, building a deck, or reworking a kitchen, we focus on practical layouts, durable finishes, and work that feels polished from day one.</p>
-                </div>
-                <div class="about-highlights">
-                    <div>
-                        <strong>Homes</strong>
-                        <span>Kitchens, baths, basements, decks, garages, and outdoor living.</span>
-                    </div>
-                    <div>
-                        <strong>Commercial</strong>
-                        <span>Office updates, retail improvements, tenant build-outs, and repair work.</span>
-                    </div>
-                    <div>
-                        <strong>Process</strong>
-                        <span>Clear estimates, clean execution, and communication from start to finish.</span>
-                    </div>
+            <section class="premium-trust-strip" aria-label="Service area and project focus">
+                <span>Marietta</span><i></i><span>Cobb County</span><i></i><span>Cherokee County</span><i></i><span>Greater Atlanta</span>
+            </section>
+
+            <section class="premium-intro">
+                <span class="eyebrow">A Better Way to Build</span>
+                <h2>Details are not an afterthought.<br>They are the whole point.</h2>
+                <div><p>Haven Design &amp; Build brings a detail-led approach to renovations, additions, commercial spaces, and outdoor living. We plan carefully, communicate clearly, and build the elements clients will enjoy for years.</p><a href="#inquire" class="text-link" data-page="inquire">Tell us what you want to build <span>→</span></a></div>
+            </section>
+
+            <section id="featured-work" class="premium-work">
+                <div class="premium-section-heading"><div><span class="eyebrow">Selected Work</span><h2>Built around the way you live.</h2></div><a href="/projects/" class="text-link">All project case studies <span>→</span></a></div>
+                <div class="premium-project-grid">
+                    <a class="premium-project premium-project-featured" href="/projects/bridgemill-garage-addition-canton-ga/"><img src="images/bridgemill-garage-addition-01.webp" alt="Modern garage addition completed by Haven Design and Build" width="1200" height="900" loading="lazy"><span class="project-label">Residential Addition</span><h3>BridgeMill Garage Addition</h3><p>Architecture, lighting, custom doors, and finishes brought together as one cohesive exterior.</p></a>
+                    <a class="premium-project" href="/projects/paver-driveway-hardscaping/"><img src="images/paver-driveway-01.jpg" alt="Completed custom paver driveway" width="960" height="720" loading="lazy"><span class="project-label">Hardscaping</span><h3>Custom Paver Driveway</h3></a>
+                    <a class="premium-project" href="/projects/composite-deck-stairs-and-landing/"><img src="images/composite-deck-stairs-01.webp" alt="Composite deck stairs and landing" width="1200" height="1600" loading="lazy"><span class="project-label">Outdoor Living</span><h3>Composite Stairs &amp; Landing</h3></a>
+                    <a class="premium-project" href="/projects/commercial-bathroom-renovations/"><img src="images/commercial-bathroom-01-after.webp" alt="Completed commercial bathroom renovation" width="1200" height="1600" loading="lazy"><span class="project-label">Commercial Renovation</span><h3>Jasper Bathroom Refresh</h3></a>
                 </div>
             </section>
 
-            <!-- Service Inspiration Grid -->
-            <section class="featured-projects">
-                <h3>Renovation Services & Finish Inspiration</h3>
-                <div class="projects-grid">
-                    <div class="project-card">
-                        <img src="images/modern_living-720.webp" srcset="images/modern_living-480.webp 480w, images/modern_living-720.webp 720w" sizes="(max-width: 768px) 100vw, 25vw" alt="Modern living room with warm seating and refined finishes" width="720" height="480" loading="lazy" decoding="async">
-                        <h4>Whole-Room Improvements</h4>
-                        <p>Layout, finish, and detail upgrades for spaces that need to feel complete and comfortable.</p>
-                    </div>
-                    <div class="project-card">
-                        <img src="images/Kitchen_remodel-720.webp" srcset="images/Kitchen_remodel-480.webp 480w, images/Kitchen_remodel-720.webp 720w" sizes="(max-width: 768px) 100vw, 25vw" alt="Kitchen with updated cabinetry, counters, and open workspace" width="720" height="499" loading="lazy" decoding="async">
-                        <h4>Kitchen Remodeling</h4>
-                        <p>Kitchens planned around storage, workflow, lighting, surfaces, and the way the property is used.</p>
-                    </div>
-                    <div class="project-card">
-                        <img src="images/luxury_bathroom-720.webp" srcset="images/luxury_bathroom-480.webp 480w, images/luxury_bathroom-720.webp 720w" sizes="(max-width: 768px) 100vw, 25vw" alt="Bathroom with walk-in shower, tile, and refined fixtures" width="720" height="466" loading="lazy" decoding="async">
-                        <h4>Bathroom Remodeling</h4>
-                        <p>Bath upgrades that balance tile, fixtures, storage, lighting, and durable wet-area details.</p>
-                    </div>
-                    <div class="project-card">
-                        <img src="images/outdoor_living-720.webp" srcset="images/outdoor_living-480.webp 480w, images/outdoor_living-720.webp 720w" sizes="(max-width: 768px) 100vw, 25vw" alt="Outdoor seating area suited for deck and patio living" width="720" height="514" loading="lazy" decoding="async">
-                        <h4>Decks & Outdoor Living</h4>
-                        <p>Decks, patios, and extended living spaces that blend indoor comfort with outdoor beauty.</p>
-                    </div>
-                </div>
+            <section class="premium-services">
+                <div class="premium-services-image"><img src="images/composite-deck-stairs-03.webp" alt="Custom composite stairs with metal railing" width="1600" height="1200" loading="lazy"></div>
+                <div class="premium-services-copy"><span class="eyebrow">What We Build</span><h2>Spaces with staying power.</h2><p>From a room that no longer works to an entirely new exterior experience, our work is organized around strong layouts, durable finishes, and a result that belongs to the property.</p><div class="service-links"><a href="/services/kitchen-remodeling-marietta-ga/">Kitchens <span>→</span></a><a href="/services/bathroom-remodeling-marietta-ga/">Bathrooms <span>→</span></a><a href="/services/basement-finishing-marietta-ga/">Additions &amp; Basements <span>→</span></a><a href="/services/deck-builder-marietta-ga/">Outdoor Living <span>→</span></a><a href="/services/commercial-renovation-marietta-ga/">Commercial Spaces <span>→</span></a></div></div>
             </section>
 
-            <!-- Testimonials -->
-            <section class="testimonials">
-                <h3>Voices of Excellence</h3>
-                <div class="testimonials-container">
-                    <div class="testimonial">
-                        <span class="testimonial-rating">★★★★★</span>
-                        <p>"The elevation in design quality Haven brought to our home was profound. Their builders are true artisans of their craft."</p>
-                        <span class="author">Marcus L.</span>
-                        <span class="verified-label">Verified Client</span>
-                    </div>
-                    <div class="testimonial">
-                        <span class="testimonial-rating">★★★★★</span>
-                        <p>"Renovating a luxury property is daunting, but Haven's team delivered a flawless execution of our vision with professional grace."</p>
-                        <span class="author">Sofia K.</span>
-                        <span class="verified-label">Verified Client</span>
-                    </div>
-                    <div class="testimonial">
-                        <span class="testimonial-rating">★★★★★</span>
-                        <p>"More than just your typical contractors. Walked with us in the design and build of our latest property."</p>
-                        <span class="author">James M.</span>
-                        <span class="verified-label">Verified Client</span>
-                    </div>
-                </div>
-            </section>
+            <section class="premium-process"><span class="eyebrow">The Haven Standard</span><h2>A clear process. A considered result.</h2><div class="premium-process-grid"><article><span>01</span><h3>Define the vision</h3><p>We start with the property, the goals, and the details that will make the project feel right.</p></article><article><span>02</span><h3>Build with intention</h3><p>Scope, materials, communication, and execution stay aligned from the first decision through the finish work.</p></article><article><span>03</span><h3>Enjoy the difference</h3><p>The finished space is designed to work beautifully now and hold up to real life over time.</p></article></div></section>
+
+            <section class="premium-cta"><img src="images/paver-driveway-02.jpg" alt="Finished paver driveway at a Haven Design and Build project" width="960" height="598" loading="lazy"><div><span class="eyebrow">Start the Conversation</span><h2>Have a space worth improving?</h2><p>Tell us what you have in mind. We will help identify the clearest next step for your project.</p><a href="#inquire" class="premium-button premium-button-gold" data-page="inquire">Request a Consultation</a></div></section>
         </section>
 
         <!-- Services Page -->
