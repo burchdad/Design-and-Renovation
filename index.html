@@ -69,6 +69,7 @@
       @media (max-width:480px){.nav-container{padding:1rem}.logo-image{width:140px}.hero-content h1{font-size:clamp(1.45rem,9vw,1.85rem);line-height:1.18}.hero-content p,.hero-proof{font-size:.96rem}.hero-image{border-radius:8px}}
     </style>
     <link rel="stylesheet" href="css/styles.min.css?v=20260719-geo1">
+    <link rel="stylesheet" href="css/inquiry.css?v=20261009">
     <link rel="stylesheet" href="css/homepage-preview.css?v=20261001-2">
     
     <title>North Atlanta Renovation Contractor | Haven Design & Build</title>
@@ -394,47 +395,15 @@
             </div>
         </section>
 
-        <!-- Local SEO / Answer Engine Hub -->
-        <section id="local-answers" class="page-support-section">
-            <div class="local-seo-panel local-faq-panel">
-                <div class="local-faq-heading"><span class="section-kicker">Questions, Answered</span><h2>Planning a renovation?</h2><p>Here are the things homeowners and property owners most often want to know before the first conversation.</p></div>
-                <div class="answer-grid answer-accordion">
-                    <details open><summary>Which areas does Haven serve?</summary><p>Haven serves homeowners and commercial property owners across North Atlanta, including <a class="inline-link" href="/areas/marietta-ga/">Marietta</a>, <a class="inline-link" href="/areas/cobb-county-ga/">Cobb County</a>, and <a class="inline-link" href="/areas/cherokee-county-ga/">Cherokee County</a>.</p></details>
-                    <details><summary>What types of projects do you handle?</summary><p>Kitchen remodeling, bathroom remodeling, basements, garage improvements, decks, outdoor living, and select commercial updates and tenant build-outs.</p></details>
-                    <details><summary>How do I get started?</summary><p>Share the project type, location, timeline, photos, and goals through the inquiry form. Haven will confirm fit and outline the best next step.</p></details>
-                    <details><summary>What makes Haven different?</summary><p>Haven is built for organized renovation projects where layout, finish quality, communication, and long-term durability matter. See the <a class="inline-link" href="/why-haven-renovation-contractor-marietta-ga/">contractor comparison guide</a>.</p></details>
-                </div>
-                <a class="text-link local-faq-link" href="/home-renovation-companies-marietta-ga/">Explore Haven in Marietta <span>→</span></a>
-            </div>
-        </section>
-
         <!-- Inquire Page -->
         <section id="inquire" class="page" style="display: none;">
-            <div class="inquire-header">
-                <h2>Get a Quote</h2>
-                <p>Tell Haven what you want to build, where the property is, and when you hope to start. The team will review fit and follow up with the clearest next step.</p>
-            </div>
-
             <div class="inquire-content">
-                <div class="quote-path" aria-label="Quote request process">
-                    <div>
-                        <span>1</span>
-                        <strong>Share the scope</strong>
-                        <p>Choose the project type and describe the room, deck, basement, or commercial space.</p>
-                    </div>
-                    <div>
-                        <span>2</span>
-                        <strong>Confirm fit</strong>
-                        <p>Haven checks location, timing, and whether the project needs a site conversation.</p>
-                    </div>
-                    <div>
-                        <span>3</span>
-                        <strong>Plan the estimate</strong>
-                        <p>You get a practical next step for design, budget, payment schedule, or build planning.</p>
-                    </div>
-                </div>
                 <div class="form-container">
-                    <form id="inquireForm" class="inquiry-form" action="https://formspree.io/f/xlgvyvkp" method="POST">
+                    <div class="inquire-header">
+                        <h2 id="inquiry-title" tabindex="-1">Get a Quote</h2>
+                        <p>Tell Haven what you want to build, where the property is, and when you hope to start. The team will review fit and follow up with the clearest next step.</p>
+                    </div>
+                    <form id="inquireForm" class="inquiry-form" aria-labelledby="inquiry-title" action="https://formspree.io/f/xlgvyvkp" method="POST">
                         <input type="hidden" name="_subject" value="New Haven Design & Build inquiry">
                         <input type="hidden" name="_next" value="https://www.designhavenbuild.com/#thanks">
                         <input type="hidden" name="conversion_path" value="homepage_project_fit_review">
@@ -493,6 +462,37 @@
                     <p class="form-note form-note-email">Prefer direct contact? <a href="tel:+17707225815" data-analytics-event="cta_phone_click" data-analytics-label="form_backup">Call 770-722-5815</a> or email <a href="mailto:micah@designhavenbuild.com" data-analytics-event="cta_email_click" data-analytics-label="form_backup">micah@designhavenbuild.com</a>.</p>
                     <div id="formMessage" class="form-message" style="display: none;"></div>
                 </div>
+                <div class="quote-path" aria-label="Quote request process">
+                    <div>
+                        <span>1</span>
+                        <strong>Share the scope</strong>
+                        <p>Choose the project type and describe the room, deck, basement, or commercial space.</p>
+                    </div>
+                    <div>
+                        <span>2</span>
+                        <strong>Confirm fit</strong>
+                        <p>Haven checks location, timing, and whether the project needs a site conversation.</p>
+                    </div>
+                    <div>
+                        <span>3</span>
+                        <strong>Plan the estimate</strong>
+                        <p>You get a practical next step for design, budget, payment schedule, or build planning.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Local SEO / Answer Engine Hub -->
+        <section id="local-answers" class="page-support-section">
+            <div class="local-seo-panel local-faq-panel">
+                <div class="local-faq-heading"><span class="section-kicker">Questions, Answered</span><h2>Planning a renovation?</h2><p>Here are the things homeowners and property owners most often want to know before the first conversation.</p></div>
+                <div class="answer-grid answer-accordion">
+                    <details open><summary>Which areas does Haven serve?</summary><p>Haven serves homeowners and commercial property owners across North Atlanta, including <a class="inline-link" href="/areas/marietta-ga/">Marietta</a>, <a class="inline-link" href="/areas/cobb-county-ga/">Cobb County</a>, and <a class="inline-link" href="/areas/cherokee-county-ga/">Cherokee County</a>.</p></details>
+                    <details><summary>What types of projects do you handle?</summary><p>Kitchen remodeling, bathroom remodeling, basements, garage improvements, decks, outdoor living, and select commercial updates and tenant build-outs.</p></details>
+                    <details><summary>How do I get started?</summary><p>Share the project type, location, timeline, photos, and goals through the inquiry form. Haven will confirm fit and outline the best next step.</p></details>
+                    <details><summary>What makes Haven different?</summary><p>Haven is built for organized renovation projects where layout, finish quality, communication, and long-term durability matter. See the <a class="inline-link" href="/why-haven-renovation-contractor-marietta-ga/">contractor comparison guide</a>.</p></details>
+                </div>
+                <a class="text-link local-faq-link" href="/home-renovation-companies-marietta-ga/">Explore Haven in Marietta <span>→</span></a>
             </div>
         </section>
 
@@ -772,7 +772,7 @@
         </div>
     </footer>
 
-    <script src="js/app.js?v=20260719-geo1" defer></script>
+    <script src="js/app.js?v=20261009-inquiry" defer></script>
     <script src="js/website-helper-agent.js?v=20260719-geo1" defer></script>
 </body>
 </html>

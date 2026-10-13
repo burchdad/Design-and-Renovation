@@ -135,12 +135,13 @@ class NavigationManager {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
                 const page = link.getAttribute('data-page');
-                this.navigateTo(page, true);
                 this.closeMenu();
+                this.navigateTo(page, true);
             });
         });
 
         window.addEventListener('hashchange', () => {
+            this.closeMenu();
             this.navigateTo(this.getPageFromHash(), false);
         });
     }
@@ -161,7 +162,9 @@ class NavigationManager {
 
     getPageFromHash() {
         const page = window.location.hash.replace('#', '');
-        return document.getElementById(page) ? page : 'home';
+        // Also support links to the form itself without hiding its parent page.
+        if (page === 'inquireForm' || page === 'inquiry-title') return 'inquire';
+        return document.getElementById(page)?.classList.contains('page') ? page : 'home';
     }
 
     navigateTo(page, updateHash = false) {
@@ -185,12 +188,26 @@ class NavigationManager {
             // Update meta tags for SEO
             this.metaTagManager.updateMetaTags(page);
 
-            if (updateHash) {
-                history.pushState(null, '', page === 'home' ? '#home' : `#${page}`);
+            const hash = `#${page}`;
+            if (updateHash && window.location.hash !== hash) {
+                history.pushState(null, '', hash);
             }
 
-            // Scroll to top
-            window.scrollTo(0, 0);
+            if (page === 'inquire') {
+                // Land at the form heading below the sticky header. Heading focus
+                // keeps the next Tab on the first field without opening a mobile
+                // keyboard or counting navigation as a started form.
+                const heading = document.getElementById('inquiry-title');
+                const headerHeight = document.querySelector('.navbar')?.getBoundingClientRect().height || 0;
+                heading.style.setProperty('--inquiry-scroll-offset', `${headerHeight + 24}px`);
+                heading.focus({ preventScroll: true });
+                heading.scrollIntoView({ block: 'start', behavior: 'instant' });
+            } else {
+                // Do not leave keyboard focus inside a page that is now hidden.
+                selectedPage.setAttribute('tabindex', '-1');
+                selectedPage.focus({ preventScroll: true });
+                window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+            }
         }
     }
 }

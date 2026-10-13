@@ -1,0 +1,40 @@
+/* Keep the inquiry form first, with supporting details below it. */
+#inquire .inquire-content {
+    padding-top: 2rem;
+}
+
+#inquire .inquire-header {
+    background: transparent;
+    border: 0;
+    padding: 0 0 2rem;
+    text-align: left;
+}
+
+#inquire .inquire-header h2 {
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+#inquiry-title {
+    scroll-margin-top: var(--inquiry-scroll-offset, 11rem);
+}
+
+#inquiry-title:focus-visible {
+    outline: 2px solid var(--bronze-light);
+    outline-offset: 6px;
+}
+
+#inquire .inquire-header p {
+    font-size: 1rem;
+}
+
+#inquire .quote-path {
+    margin: 2rem 0 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
