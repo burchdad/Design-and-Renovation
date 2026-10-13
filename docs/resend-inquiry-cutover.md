@@ -62,9 +62,15 @@ Mail and routing:
 - `RESEND_API_KEY`: server-only, appropriately scoped key supplied securely.
 - `INQUIRY_FROM_EMAIL`: explicitly approved address on a verified sending domain.
   Set `INQUIRY_SENDER_VERIFIED=true` only after provider/domain verification.
-- `INQUIRY_TO_EMAIL`: explicitly confirmed, monitored destination. The existing
-  public contact email is not assumed to be the notification recipient.
-  Set `INQUIRY_RECIPIENT_CONFIRMED=true` only after confirming routing.
+- `INQUIRY_TO_EMAIL`: supply the owner-confirmed notification recipient through
+  private server-side release configuration. The user approved the destination
+  on October 13, 2026; its exact value must not be published in this repository,
+  PR text or previews. Inbox delivery has not been tested. This is notification routing only; the existing public fallback
+  contact and unselected sender remain unchanged.
+  Keep `INQUIRY_RECIPIENT_CONFIRMED=false`, `INQUIRY_RESEND_ENABLED=false` and
+  `INQUIRY_APPROVED_TEST_PASSED=false` in review examples. Recipient approval
+  alone does not authorize sending a test or enabling the replacement. Complete
+  the separately authorized delivery and release checks before enabling them.
 - `INQUIRY_APPROVED_TEST_PASSED=true`: only after a separately authorized,
   synthetic delivery test verifies inbox receipt, Reply-To, HTML/text and saved
   record. Unit-test success is not this approval. Perform that preflight through
@@ -110,7 +116,9 @@ All configuration must be server-side. Do not add secret values to this file,
 
 - Review this branch/PR and the synthetic preview while the current Formspree
   route remains unchanged. A preview deployment is not production cutover.
-- Approve sender, recipient, private store/access, retention and rate service.
+- The notification recipient is user-approved and recorded in private release
+  configuration; delivery remains untested. Approve the sender, private store/access, retention and rate
+  service before the separately authorized delivery preflight.
   Check storage/rate costs, shared Resend limits and existing routing first.
 - Run the specifically authorized synthetic inbox/storage acceptance test.
   Validate the actual Node 24 Vercel build, private OIDC scope, conditional writes,
