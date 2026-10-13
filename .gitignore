@@ -1,3 +1,12 @@
 .vercel
 finance_review/
 recovered_excel/
+
+.env
+.env.*
+!.env.example
+node_modules/
+
+review-artifacts/
+BASE_SHA
+update_frontend.py

@@ -1,0 +1,14 @@
+{
+  "name": "haven-design-build-site",
+  "private": true,
+  "engines": {
+    "node": "24.x"
+  },
+  "scripts": {
+    "test": "node --test tests/*.test.js",
+    "check": "node --check api/inquiry.js && node --check lib/inquiry.js && node --check lib/inquiry-store.js && node --check js/app.js && node scripts/validate-admin-access.js"
+  },
+  "dependencies": {
+    "@vercel/blob": "2.8.1"
+  }
+}

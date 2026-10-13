@@ -12,7 +12,14 @@ python -m http.server 8000
 
 Then open `http://localhost:8000`.
 
-## 2. Inquiry Form Setup (Formspree)
+## 2. Inquiry form (staged migration)
+
+Keep the existing Formspree endpoint in place. The dormant Resend replacement
+requires the exact approval, storage, retention and delivery gates in
+[`docs/resend-inquiry-cutover.md`](docs/resend-inquiry-cutover.md).
+Do not create a new Formspree form or change routing as part of preview review.
+
+### Legacy Formspree setup reference
 
 The inquiry form is active and submits via fetch in `js/app.js`.
 
@@ -105,6 +112,8 @@ Before deploying:
 ## 8. Troubleshooting
 
 ### Form submits fail
+
+For the staged Resend endpoint, missing configuration fails closed and never claims delivery. See the cutover guide. For the still-active Formspree route:
 
 - Check Formspree endpoint in `js/app.js`
 - Check browser console for network errors

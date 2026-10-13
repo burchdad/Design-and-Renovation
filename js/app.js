@@ -220,6 +220,9 @@ class FormHandler {
         this.form = document.getElementById('inquireForm');
         this.messageDiv = document.getElementById('formMessage');
         this.started = false;
+        this.submitting = false;
+        this.submissionTimestamp = null;
+        this.submissionId = null;
         this.init();
     }
 
@@ -239,8 +242,19 @@ class FormHandler {
         });
     }
 
+    getSubmissionId() {
+        try {
+            const previous = sessionStorage.getItem('haven-inquiry-logical-id');
+            if (/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(previous || '')) return previous;
+        } catch { /* Storage may be unavailable; retain the ID in this form instance. */ }
+        const id = crypto.randomUUID();
+        try { sessionStorage.setItem('haven-inquiry-logical-id', id); } catch { /* No PII is stored. */ }
+        return id;
+    }
+
     async handleSubmit(e) {
         e.preventDefault();
+        if (this.submitting) return;
 
         // Get form data
         const formData = new FormData(this.form);
@@ -250,13 +264,16 @@ class FormHandler {
             phone: formData.get('phone'),
             zip: formData.get('zip'),
             description: formData.get('description'),
-            service: formData.get('service') || 'Not specified',
-            projectType: formData.get('projectType') || 'Not specified',
-            timestamp: new Date().toLocaleString()
+            service: formData.get('service') || '',
+            projectType: formData.get('projectType'),
+            conversion_path: formData.get('conversion_path'),
+            website: formData.get('website') || '',
+            submissionId: this.submissionId || (this.submissionId = this.getSubmissionId()),
+            timestamp: this.submissionTimestamp || (this.submissionTimestamp = new Date().toISOString())
         };
 
         trackAnalyticsEvent('quote_form_attempt', {
-            service_interest: data.service,
+            service_interest: data.service || 'Not specified',
             project_type: data.projectType,
             zip_code: data.zip
         });
@@ -285,63 +302,65 @@ class FormHandler {
             return;
         }
 
-        // Submit inquiry using Formspree
-        try {
-            // Disable submit button
-            const submitBtn = this.form.querySelector('button[type="submit"]');
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Sending...';
-
-            formData.set('_subject', `New Haven inquiry - ${data.service}`);
+        // Review rollout: Formspree remains active until an approved cutover changes
+        // the HTML action to /api/inquiry. Never silently dual-send or fall back.
+        const useResend = this.form.getAttribute('action') === '/api/inquiry';
+        if (!useResend) {
+            formData.set('_subject', `New Haven inquiry - ${data.service || 'Not specified'}`);
             formData.set('_replyto', data.email);
             formData.set('timestamp', data.timestamp);
+            formData.set('_gotcha', data.website);
+            formData.delete('website');
+        }
+        const submitBtn = this.form.querySelector('button[type="submit"]');
+        const originalLabel = submitBtn.textContent;
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), 30000);
+        this.submitting = true;
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+        this.form.setAttribute('aria-busy', 'true');
+        this.messageDiv.style.display = 'none';
 
-            const response = await fetch(this.form.action, {
+        try {
+            const response = await fetch(useResend ? '/api/inquiry' : this.form.action, {
                 method: 'POST',
-                headers: {
-                    'Accept': 'application/json'
-                },
-                body: formData
+                headers: useResend ? { 'Accept': 'application/json', 'Content-Type': 'application/json' } : { 'Accept': 'application/json' },
+                credentials: useResend ? 'same-origin' : 'omit',
+                signal: controller.signal,
+                body: useResend ? JSON.stringify(data) : formData
             });
-
-            if (response.ok) {
-                trackAnalyticsEvent('generate_lead', {
-                    service_interest: data.service,
-                    project_type: data.projectType,
-                    zip_code: data.zip,
-                    conversion_path: 'homepage_project_fit_review'
-                });
-                this.showMessage(
-                    'Success! Your inquiry has been submitted. We\'ll contact you within 24 hours.',
-                    'success'
-                );
-                this.form.reset();
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Submit Inquiry';
-                window.location.hash = 'thanks';
-            } else {
-                trackAnalyticsEvent('quote_form_error', {
-                    event_label: 'formspree_response_error'
-                });
-                this.showMessage(
-                    'There was an issue submitting your inquiry. Please email micah@designhavenbuild.com directly.',
-                    'error'
-                );
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Submit Inquiry';
+            const result = useResend ? await response.json() : null;
+            if (!response.ok || (useResend && result.ok !== true)) {
+                trackAnalyticsEvent('quote_form_error', { event_label: 'inquiry_response_error' });
+                const messages = {
+                    400: 'Please check your contact details and project description, then try again.',
+                    429: 'Please wait before trying again, or use the phone or email link below.'
+                };
+                this.showMessage(messages[response.status] || 'We could not confirm your inquiry. Your details are still here. Please retry or email micah@designhavenbuild.com directly.', 'error');
+                return;
             }
-        } catch (error) {
-            console.error('Form submission error:', error);
-            trackAnalyticsEvent('quote_form_error', {
-                event_label: 'network_error'
+            trackAnalyticsEvent('generate_lead', {
+                service_interest: data.service || 'Not specified',
+                project_type: data.projectType,
+                zip_code: data.zip,
+                conversion_path: 'homepage_project_fit_review'
             });
-            this.showMessage(
-                'Connection error. Please email micah@designhavenbuild.com directly.',
-                'error'
-            );
-            const submitBtn = this.form.querySelector('button[type="submit"]');
+            this.showMessage('Your inquiry has been submitted. We will review your project and follow up within 24–48 hours.', 'success');
+            this.form.reset();
+            this.submissionTimestamp = null;
+            this.submissionId = null;
+            try { sessionStorage.removeItem('haven-inquiry-logical-id'); } catch { /* Optional storage. */ }
+            window.location.hash = 'thanks';
+        } catch (error) {
+            trackAnalyticsEvent('quote_form_error', { event_label: error.name === 'AbortError' ? 'submission_timeout' : 'network_error' });
+            this.showMessage('We could not confirm your inquiry. Your details are still here. Please retry or email micah@designhavenbuild.com directly.', 'error');
+        } finally {
+            clearTimeout(timeout);
+            this.submitting = false;
             submitBtn.disabled = false;
-            submitBtn.textContent = 'Submit Inquiry';
+            submitBtn.textContent = originalLabel;
+            this.form.removeAttribute('aria-busy');
         }
     }
 
@@ -350,10 +369,7 @@ class FormHandler {
         this.messageDiv.className = `form-message ${type}`;
         this.messageDiv.style.display = 'block';
 
-        // Hide message after 5 seconds
-        setTimeout(() => {
-            this.messageDiv.style.display = 'none';
-        }, 5000);
+        // Keep errors visible until the visitor retries. Announce via the live region.
     }
 }
 

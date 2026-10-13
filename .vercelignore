@@ -1,0 +1,7 @@
+node_modules
+.env
+.env.*
+review-artifacts
+BASE_SHA
+update_frontend.py
+tests
