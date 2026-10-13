@@ -1,6 +1,8 @@
 # Deployment Guide - Haven Design & Build
 
-Complete guide to deploy your website to production.
+The Resend migration is a review-only, disabled route. Keep the existing Formspree action until all gates in [the inquiry cutover guide](docs/resend-inquiry-cutover.md) are met. This replacement requires Vercel server functions; the legacy static-host instructions below do not deploy it.
+
+Legacy general deployment reference follows.
 
 ## Option 1: Netlify (Easiest - Recommended)
 

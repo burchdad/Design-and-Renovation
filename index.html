@@ -407,29 +407,33 @@
                         <input type="hidden" name="_subject" value="New Haven Design & Build inquiry">
                         <input type="hidden" name="_next" value="https://www.designhavenbuild.com/#thanks">
                         <input type="hidden" name="conversion_path" value="homepage_project_fit_review">
+                        <div hidden aria-hidden="true">
+                            <label for="inquiry-website">Leave this field blank</label>
+                            <input type="text" id="inquiry-website" name="website" tabindex="-1" autocomplete="off">
+                        </div>
                         <div class="form-group">
                             <label for="name">Full Name *</label>
-                            <input type="text" id="name" name="name" required>
+                            <input type="text" id="name" name="name" maxlength="120" required>
                         </div>
 
                         <div class="form-group">
                             <label for="email">Email Address *</label>
-                            <input type="email" id="email" name="email" required>
+                            <input type="email" id="email" name="email" maxlength="254" required>
                         </div>
 
                         <div class="form-group">
                             <label for="phone">Phone Number *</label>
-                            <input type="tel" id="phone" name="phone" required>
+                            <input type="tel" id="phone" name="phone" maxlength="40" required>
                         </div>
 
                         <div class="form-group">
                             <label for="zip">Zip Code *</label>
-                            <input type="text" id="zip" name="zip" required>
+                            <input type="text" id="zip" name="zip" maxlength="10" required>
                         </div>
 
                         <div class="form-group">
                             <label for="description">Project Description *</label>
-                            <textarea id="description" name="description" rows="6" required placeholder="Tell us about your project..."></textarea>
+                            <textarea id="description" name="description" rows="6" maxlength="5000" required placeholder="Tell us about your project..."></textarea>
                         </div>
 
                         <div class="form-group">
@@ -460,7 +464,7 @@
                     </form>
 
                     <p class="form-note form-note-email">Prefer direct contact? <a href="tel:+17707225815" data-analytics-event="cta_phone_click" data-analytics-label="form_backup">Call 770-722-5815</a> or email <a href="mailto:micah@designhavenbuild.com" data-analytics-event="cta_email_click" data-analytics-label="form_backup">micah@designhavenbuild.com</a>.</p>
-                    <div id="formMessage" class="form-message" style="display: none;"></div>
+                    <div id="formMessage" class="form-message" role="status" aria-live="polite" aria-atomic="true" style="display: none;"></div>
                 </div>
                 <div class="quote-path" aria-label="Quote request process">
                     <div>
@@ -772,7 +776,7 @@
         </div>
     </footer>
 
-    <script src="js/app.js?v=20261009-inquiry" defer></script>
+    <script src="js/app.js?v=20261013-resend-review" defer></script>
     <script src="js/website-helper-agent.js?v=20260719-geo1" defer></script>
 </body>
 </html>

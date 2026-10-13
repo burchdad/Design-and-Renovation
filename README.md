@@ -44,13 +44,16 @@ For fast setup, use `START_HERE.md` and `QUICKSTART.md`.
 
 ## Key Integrations
 
-### Inquiry Form (Formspree)
+### Inquiry Form (staged Resend review)
 
-The form submits from `js/app.js` using a Formspree endpoint.
+Formspree remains the active default, including native non-JavaScript submissions.
+The disabled `POST /api/inquiry` replacement stores inquiries in a private,
+Haven-only Vercel Blob store before sending a minimal Resend notification.
 
-- Find the fetch URL in `js/app.js`.
-- Replace the Formspree form ID with your own.
-- Submit a test inquiry from the Inquire page.
+- Review and release gates: [`docs/resend-inquiry-cutover.md`](docs/resend-inquiry-cutover.md)
+- Synthetic notification preview: [`review/inquiry-email.html`](review/inquiry-email.html)
+- Offline checks: `npm ci --ignore-scripts`, `npm test`, `npm run check`
+- No production routing, account configuration, storage or email tests have been changed.
 
 ### Stripe (Placeholder Logic Retained)
 
@@ -67,11 +70,11 @@ Stripe flow remains intentionally placeholder-based in `js/app.js`.
 
 ## Deployment
 
-This is a static site. You can deploy to Netlify, Vercel, GitHub Pages, or any static host.
+The current frontend is static; the proposed Resend replacement requires Vercel Node.js functions, an approved private Blob connection and a shared rate limiter. A static-only host cannot run that endpoint.
 
 ## Pre-Launch Checklist
 
-- [ ] Replace Formspree ID with production form
+- [ ] Complete the staged inquiry cutover checklist before changing the current Formspree action
 - [ ] Verify inquiry emails are received
 - [ ] Confirm Stripe production flow (or keep as clearly labeled placeholder)
 - [ ] Verify mobile navigation and forms on phone
