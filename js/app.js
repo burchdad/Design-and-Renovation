@@ -8,8 +8,8 @@ class MetaTagManager {
         this.baseUrl = 'https://www.designhavenbuild.com/';
         this.pageMetadata = {
             home: {
-                title: 'Haven Design & Build LLC | Marietta GA Renovation Contractor',
-                description: 'Marietta renovation contractor for kitchens, bathrooms, basements, decks, outdoor living, and commercial build-outs across Cobb County and greater Atlanta.',
+                title: 'North Atlanta Renovation Contractor | Haven Design & Build',
+                description: 'Haven Design & Build remodels kitchens, bathrooms, basements and outdoor spaces in Marietta and North Atlanta, with select commercial renovations.',
                 ogTitle: 'Haven Design & Build LLC | Marietta Renovation Contractor',
                 ogDescription: 'Residential and commercial design-build remodeling in Marietta, Cobb County, and greater Atlanta.',
                 ogImage: 'https://www.designhavenbuild.com/images/modern_living.jpg',
@@ -91,7 +91,7 @@ class MetaTagManager {
         
         // Update canonical
         let canonical = document.querySelector('link[rel="canonical"]');
-        if (canonical) canonical.setAttribute('href', metadata.url);
+        if (canonical) canonical.setAttribute('href', this.baseUrl);
 
         // Update Twitter card tags
         this.updateOrCreateMetaTag('property', 'twitter:title', metadata.ogTitle);

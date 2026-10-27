@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://www.designhavenbuild.com/</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -41,19 +41,19 @@
   </url>
   <url>
     <loc>https://www.designhavenbuild.com/services/basement-finishing-marietta-ga/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.designhavenbuild.com/services/deck-builder-marietta-ga/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.designhavenbuild.com/services/commercial-renovation-marietta-ga/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -123,7 +123,7 @@
   </url>
   <url>
     <loc>https://www.designhavenbuild.com/areas/cherokee-county-ga/</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.74</priority>
   </url>
